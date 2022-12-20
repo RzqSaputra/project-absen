@@ -8,11 +8,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AuthController;
-
-// Route::get('/', function () {
-//     return view('index');
-// });
-
+use App\Http\Controllers\AbsenContoller;
 
 Route::group(['middleware' => ['auth']], function(){
 // Route Pengguna
@@ -33,6 +29,9 @@ Route::post('/pegawai', [PegawaiController::class,'simpanPegawai'])->name('pegaw
 Route::get('/pegawai/ubah/{id}', [PegawaiController::class, 'ubahPegawai'])->name('pegawai.ubahPegawai');
 Route::post('/pegawai/update/{id}', [PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
 Route::get('/pegawai/delete/{id}', [PegawaiController::class, 'destroy']);
+
+// Route Absen
+Route::get('/absen', [AbsenContoller::class, 'index'])->name('absen.index');
 });
 
 
@@ -41,13 +40,13 @@ Route::get('/', [AuthController::class, 'index'])->name('login.index');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::get('/coba/{nama}', [LinkController::class, 'index'])->name('link.index');
-
 
 //Route Profil
 Route::group(['middleware' => ['auth']], function() {
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
-    
 });
     
+Route::get('/kamera', function(){
+    return view('kamera');
+});
