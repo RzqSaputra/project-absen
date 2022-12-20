@@ -9,10 +9,13 @@
     @include('Template.sidebar')
     {{-- end sidebar --}}
     <main class="main-content position-relative border-radius-lg ">
+<<<<<<< HEAD
+        <!-- Navbar -->
+=======
        <!-- Navbar -->
+>>>>>>> ce4d1b3aa109df4585e275d1cb688ddc28f1ff98
         @include('Template.navbar')
         <!-- End Navbar -->
-       
         <div class="container-fluid py-4">
             <div class="col-md-12">
                 @if(session()->has('success'))

@@ -188,7 +188,15 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-
+                                <small class="px-3">
+                                    showing
+                                    {{$pengguna->firstItem()}}
+                                    to
+                                    {{$pengguna->lastItem()}}
+                                    of
+                                    {{$pengguna->total()}}
+                                    entries
+                                </small>
                                 {{-- modal edit data --}}
                                 @foreach($pengguna as $p)
                                 <div class="modal fade" id="editModal-{{$p->id}}" aria-labelledby="exampleModalLabel"

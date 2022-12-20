@@ -7,10 +7,17 @@ use App\Models\Pegawai;
 class PegawaiController extends Controller
 {
     public function index(Request $request){
-        $pegawai = Pegawai::select('*')
-        ->paginate(5);
-        
-        return view('pegawai.home', ['pegawai' => $pegawai]);
+        $cari = $request->cari;
+        // $datas = Pegawai::all();
+        $pegawai = Pegawai::where('nama', 'LIKE', '%'.$cari.'%')
+            ->orWhere('nip', 'LIKE', '%'.$cari.'%')
+            ->orWhere('nama', 'LIKE', '%'.$cari.'%')
+            ->paginate(5);
+        $pegawai->withPath('pegawai');
+        $pegawai->appends($request->all());
+        return view('pegawai.home', compact(
+            'pegawai', 'cari'
+        ));
     }
 
     

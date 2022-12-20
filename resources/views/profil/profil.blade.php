@@ -12,8 +12,8 @@
     <main class="main-content position-relative border-radius-lg ">
     
     <!-- Navbar -->
-    @include('Template.navbar')
-     <!-- End Navbar -->
+    {{-- @include('Template.navbar') --}}
+    <!-- End Navbar -->
 
         <!-- start container -->
         <div class="container-fluid py-4">
@@ -33,7 +33,7 @@
                             <div class="mb-3">
                                 <label for="image" class="form-label">Default file input example</label>
                                 <input class="form-control" type="file" id="image">
-                              </div>
+                            </div>
                         </div>
                         <div class="card-body">
                         <p class="text-uppercase text-sm">Informasi User</p>
@@ -86,6 +86,7 @@
         </div>
         <!--end container -->       
     </main>
+    
     <!--   Core JS Files   -->
     @include('Template.script')
 

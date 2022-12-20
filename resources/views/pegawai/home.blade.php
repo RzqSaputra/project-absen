@@ -8,6 +8,32 @@
     <main class="main-content position-relative border-radius-lg ">
         <!-- Navbar -->
         @include('Template.navbar')
+        
+        
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="padding: 15px">
+                <div class="modal-body">Apakah anda yakin untuk logout?</div>
+                <div style="margin-right: 10px;">
+                    @if (Auth::user())
+                    <form action="{{ asset('logout') }}" method="post">
+                        @csrf
+                        <button class="btn btn-danger" style="float: right">Logout</button>
+                    </form>
+                    @else
+                    <h1>Tidak Ada Session</h1>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</nav>
+
         <!-- End Navbar -->
 
         <div class="container-fluid py-4">
@@ -180,6 +206,15 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <small class="px-3">
+                                    showing
+                                    {{$pegawai->firstItem()}}
+                                    to
+                                    {{$pegawai->lastItem()}}
+                                    of
+                                    {{$pegawai->total()}}
+                                    entries
+                                </small>
                                 
                                 {{-- modal edit data --}}
                                 @foreach($pegawai as $p)
@@ -274,8 +309,6 @@
                                             <a class="btn btn-danger" href="/pegawai/delete/{{$p->id}}" style="float: right">Hapus</a>
                                             </div>
                                         </div>
-                                        
-                                            
                                         </div>
                                     </div>
                                 </div>
