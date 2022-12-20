@@ -52,8 +52,6 @@
                         
                     </ul>
                 </li>
-<<<<<<< HEAD
-=======
 
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Akun</h6>
@@ -84,7 +82,6 @@
                         <span class="nav-link-text ms-1">Pengguna</span>
                     </a>
                 </li> --}}
->>>>>>> ce4d1b3aa109df4585e275d1cb688ddc28f1ff98
             </ul>
         </div>
     </aside>

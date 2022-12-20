@@ -35,6 +35,7 @@ class PegawaiController extends Controller
         return redirect(route('pegawai.index'));
     }
 
+
     public function editPegawai(Pegawai $pegawai)
     {
         return view('pegawai.edit',['pegawai' => $pegawai]);
@@ -49,6 +50,7 @@ class PegawaiController extends Controller
     return view('pegawai.edit', ['pegawai' => $pegawai]);
     }
 
+
     public function updatePegawai(Request $request) {
     $pegawai = Pegawai::where('id', $request->id)
         ->update([
@@ -61,6 +63,7 @@ class PegawaiController extends Controller
     return redirect()->route('pegawai.index');
     }
 
+    
     public function destroy($id){
         $pegawai = Pegawai::where('id', $id);
         $pegawai->delete();

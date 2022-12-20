@@ -86,10 +86,6 @@
         </div>
         <!--end container -->       
     </main>
-    
-    {{-- setting --}}
-    @include('Template.setting')
-    {{-- end setting --}}
     <!--   Core JS Files   -->
     @include('Template.script')
 

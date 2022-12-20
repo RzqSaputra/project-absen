@@ -20,8 +20,9 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+            $name = auth()->user()->name;
             request()->session()->regenerate();
-            return redirect()->intended('home')->with('success', 'Berhasil Login');
+            return redirect()->intended('home')->with('success', "Selamat Datang $name");
         }
 
         return back()->with('error', 'Email atau Password Salah')->onlyInput('email');
