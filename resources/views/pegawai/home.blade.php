@@ -206,8 +206,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <small class="px-3">
-                                    showing
+                                <small class="px-3" style="font-weight: bold">
+                                    Showing
                                     {{$pegawai->firstItem()}}
                                     to
                                     {{$pegawai->lastItem()}}
@@ -215,6 +215,14 @@
                                     {{$pegawai->total()}}
                                     entries
                                 </small>
+                                <style>
+                                    .page .page-item.active .page-link  {
+                                        color: white;
+                                    }
+                                </style>
+                                <div class="page" style="float: right; font-weight:bold; margin-right: 50px; margin-top: 20px;">
+                                    {{$pegawai->links()}}
+                                </div>
                                 
                                 {{-- modal edit data --}}
                                 @foreach($pegawai as $p)
@@ -317,15 +325,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <style>
-                .page-item .page-link{
-                    color: black;
-                    border: 1px rgba(43, 41, 41, 0.5);
-                }
-            </style>
-            <div class="page" style="margin-left:75%; color:white;">
-                {{$pegawai->links()}}
             </div>
             {{-- footer --}}
             @include('Template.footer')

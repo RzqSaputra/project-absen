@@ -5,10 +5,18 @@ use Illuminate\Http\Request;
 
 class penggunaController extends Controller
 {
-    public function index(){
-        $pengguna = Pengguna::select('*')
-        ->paginate(5);
-        return view('pengguna.home', ['pengguna' => $pengguna]);
+    public function index(Request $request){
+        $cari = $request->cari;
+        // $datas = Pegawai::all();
+        $pengguna = Pengguna::where('nama', 'LIKE', '%'.$cari.'%')
+            ->orWhere('nip', 'LIKE', '%'.$cari.'%')
+            ->orWhere('nama', 'LIKE', '%'.$cari.'%')
+            ->paginate(5);
+        $pengguna->withPath('pengguna');
+        $pengguna->appends($request->all());
+        return view('pengguna.home', compact(
+            'pengguna', 'cari'
+        ));
     }
 
 
