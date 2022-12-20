@@ -21,10 +21,6 @@ class ProfilController extends Controller
         return view ('profil.profil', compact('user'));
     }
 
-    public function create()
-    {
-        return view('profil.edit');
-    }
 
     Public function profil()
     {

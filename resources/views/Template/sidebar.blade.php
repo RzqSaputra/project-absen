@@ -21,10 +21,7 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-<<<<<<< HEAD
 
-=======
->>>>>>> 86e8b125b8b5fdfd7597237c7f0b7c331376c199
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                     aria-controls="collapseTwo">
@@ -56,8 +53,7 @@
                         
                     </ul>
                 </li>
-<<<<<<< HEAD
-=======
+
 
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Akun</h6>
@@ -66,7 +62,7 @@
                     <a class="nav-link " href="/profil">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                            <i class="ni ni-circle-08 text-info text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profil</span>
                     </a>
@@ -88,7 +84,6 @@
                         <span class="nav-link-text ms-1">Pengguna</span>
                     </a>
                 </li> --}}
->>>>>>> ce4d1b3aa109df4585e275d1cb688ddc28f1ff98
             </ul>
         </div>
     </aside>
