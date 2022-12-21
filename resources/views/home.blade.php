@@ -9,11 +9,6 @@
     @include('Template.sidebar')
     {{-- end sidebar --}}
     <main class="main-content position-relative border-radius-lg ">
-<<<<<<< HEAD
-
-       <!-- Navbar -->
-        @include('Template.navbar')
-=======
         <!-- Navbar -->
         {{-- @include('Template.navbar') --}}
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
@@ -72,7 +67,6 @@
     </div>
 </nav>
 
->>>>>>> 274fe3f8838e7d34e59b07664dec7f57912010c4
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="col-md-12">

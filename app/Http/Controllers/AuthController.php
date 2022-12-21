@@ -22,11 +22,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $name = auth()->user()->name;
             request()->session()->regenerate();
-<<<<<<< HEAD
             return redirect()->intended('home')->with('success', 'Selamat datang kembali');
-=======
-            return redirect()->intended('home')->with('success', "Selamat Datang $name");
->>>>>>> 274fe3f8838e7d34e59b07664dec7f57912010c4
         }
 
         return back()->with('error', 'Email atau Password Salah')->onlyInput('email');

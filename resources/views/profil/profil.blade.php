@@ -35,7 +35,6 @@
                                     <input class="form-control" type="file" id="image">
                                 </div>
                             </div>
-<<<<<<< HEAD
                             <div class="card-body">
                             <p class="text-uppercase text-sm">Informasi User</p>
                                 <div class="row">
@@ -62,20 +61,6 @@
                                             <label for="example-text-input" class="form-control-label">Alamat</label>
                                             <input class="form-control" type="text" value="{{ $user->alamat }}">
                                         </div>
-=======
-                            <div class="mb-3">
-                                <label for="image" class="form-label">Default file input example</label>
-                                <input class="form-control" type="file" id="image">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                        <p class="text-uppercase text-sm">Informasi User</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Nama</label>
-                                        <input class="form-control" type="text" value="{{ $user->name }}">
->>>>>>> 274fe3f8838e7d34e59b07664dec7f57912010c4
                                     </div>
                                 </div>
                                 <hr class="horizontal dark">
@@ -104,10 +89,6 @@
         <!--end container -->       
     </main>
     
-<<<<<<< HEAD
- 
-=======
->>>>>>> 274fe3f8838e7d34e59b07664dec7f57912010c4
     <!--   Core JS Files   -->
     @include('Template.script')
 
