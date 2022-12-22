@@ -27,7 +27,8 @@
                                 </div>
                                 <div class="col-auto">
                                     <div class="avatar avatar-xl position-relative">
-                                        <img src="{{ asset('photo/' . auth()->user()->photo) }}" alt="Profile" class="w-100 border-radius-lg shadow-sm">
+                                        {{-- {{ asset('photo/' . auth()->user()->photo) }} --}}
+                                        <img src="https://api.multiavatar.com/Binx%20jokowi.svg" alt="Profile" class="w-100 border-radius-lg shadow-sm">
                                     </div>
                                 </div>
                                 <div class="mb-3">

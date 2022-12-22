@@ -188,8 +188,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <small class="px-3">
-                                    showing
+                                <small class="px-3" style="font-weight: bold">
+                                    Showing
                                     {{$pengguna->firstItem()}}
                                     to
                                     {{$pengguna->lastItem()}}
@@ -197,6 +197,14 @@
                                     {{$pengguna->total()}}
                                     entries
                                 </small>
+                                <style>
+                                    .page .page-item.active .page-link  {
+                                        color: white;
+                                    }
+                                </style>
+                                <div class="page" style="float: right; font-weight:bold; margin-right: 50px; margin-top: 20px;">
+                                    {{$pengguna->links()}}
+                                </div>
                                 {{-- modal edit data --}}
                                 @foreach($pengguna as $p)
                                 <div class="modal fade" id="editModal-{{$p->id}}" aria-labelledby="exampleModalLabel"
@@ -276,16 +284,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <style>
-            .page-item .page-link {
-                color: black;
-                border: 1px rgba(43, 41, 41, 0.5);
-            }
-
-        </style>
-        <div class="page" style="margin-left:75%; color:white;">
-            {{$pengguna->links()}}
         </div>
         {{-- footer --}}
         @include('Template.footer')
