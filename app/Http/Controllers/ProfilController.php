@@ -29,4 +29,20 @@ class ProfilController extends Controller
         return view('profil.profil', compact('title', 'user'));
     }
 
+    public function PUpdate(Request $request,$id)
+    {
+        $request->validate([
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $image_name = time().'.'.$request->image->extension();
+        $request->image->move(public_path('users'),$image_name);
+        $path = "/users/".$image_name;
+
+        $user = User::where('id',$id)->first();
+        $user-> name = $request->name;
+        $user->save();
+        return redirect('profil.profil');
+    }
+	
 }

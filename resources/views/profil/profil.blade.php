@@ -19,21 +19,20 @@
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="#" method="POST">
+                    <form action="{{ route('PUpdate',$user->id) }}" method="POST" enctype="multipart/form-data">
                         <div class="card">
                             <div class="card-header pb-0">
                                 <div class="d-flex align-items-center">
                                     <p class="mb-0">Edit Profil</p>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="avatar avatar-xl position-relative">
-                                        {{-- {{ asset('photo/' . auth()->user()->photo) }} --}}
-                                        <img src="https://api.multiavatar.com/Binx%20jokowi.svg" alt="Profile" class="w-100 border-radius-lg shadow-sm">
-                                    </div>
-                                </div>
+                              
+                               
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Default file input example</label>
-                                    <input class="form-control" type="file" id="image">
+                                    <img class="img-preview img-fluid mb-3 col-sm-5" style="width:20%;">
+                                    <hr>
+                                    <label for="image" class="form-label">Post Image</label>
+                                    <input class="form-control @error ('image') is-invalid @enderror"
+                                            type="file" id="image" name="image" onchange="previewImage()">
                                 </div>
                             </div>
                             <div class="card-body">
@@ -94,4 +93,21 @@
     @include('Template.script')
 
 </body>
+<script>
+    function previewImage()
+    {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFRevent) {
+            imgPreview.src = oFRevent.target.result;
+        }
+    }
+    
+</script>
 </html>
