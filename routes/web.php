@@ -45,6 +45,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::group(['middleware' => ['auth']], function() {
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
+Route::post('/profil/PUpdate/{id}', [ProfilController::class, 'PUpdate'])->name('PUpdate');
 });
     
 Route::get('/kamera', function(){
