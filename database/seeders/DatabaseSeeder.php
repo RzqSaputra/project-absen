@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Cabang;
 use App\Models\Jabatan;
-use App\Models\Level;
 
 
 class DatabaseSeeder extends Seeder
@@ -22,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         //seeder user
         User::create([
-            'name' => 'Sabang Digital Indonesia',
+            'username' => 'Sabang Digital Indonesia',
             'email' => 'sdi@gmail.com',
             'password' => bcrypt('sdi123')
 
@@ -56,15 +55,6 @@ class DatabaseSeeder extends Seeder
             'namaJabatan' => 'Karyawan Magang'
         ]);
 
-        //seeder Level
-        Level::create([
-            'role' => 'Admin',
-            'username' => 'admabs'
-        ]);
-        Level::create([
-            'role' => 'Pegawai',
-            'username' => 'krywan'
-        ]);
         
     }
 }
