@@ -23,37 +23,12 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'Sabang Digital Indonesia',
             'email' => 'sdi@gmail.com',
-            'password' => bcrypt('sdi123')
+            'password' => bcrypt('sdi123'),
 
         ]);
 
-        //seeder Cabang
-        Cabang::create([
-            'namaCabang' => 'Pontianak',
-            'alamat' => 'Jl. M.Sohor'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Jakarta',
-            'alamat' => 'Jl. Budi Utomo'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Tangerang',
-            'alamat' => 'Jl. Jahahaha'
-        ]);
-
-        //seeder Jabatan
-        Jabatan::create([
-            'namaJabatan' => 'CEO'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Head Office'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Karyawan Tetap'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Karyawan Magang'
-        ]);
+        $this->call(CabangSeeder::class);
+        $this->call(JabatanSeeder::class);
 
         
     }

@@ -24,10 +24,9 @@ class CreatePegawaiTable extends Migration
             $table->char('noHp', 13);
             // $table->char('jabatan');
             $table->foreignId('jabatan_id');
-            $table->foreignId('cabang_id');
             // $table->char('cabang');
+            $table->foreignId('cabang_id');
             $table->timestamps();
-
             // Foreign Key Relation
             $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('cabang_id')->references('id')->on('cabang')->onDelete('cascade')->onUpdate('cascade');

@@ -22,7 +22,11 @@ class CreatePresensisTable extends Migration
             $table->text('keterangan');
             $table->binary('foto')->nullable();
             $table->string('lokasi');
+            $table->foreignId('pegawai_id');
             $table->timestamps();
+
+            // Foreign Key Relation
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

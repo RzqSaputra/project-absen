@@ -15,7 +15,6 @@ class CreateCabangsTable extends Migration
     {
         Schema::create('cabang', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('cabang_id');
             $table->string('namaCabang');
             $table->text('alamat')->nullable();
             $table->timestamps();
