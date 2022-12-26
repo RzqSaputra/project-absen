@@ -73,7 +73,9 @@
                 @if(session()->has('success'))
                 <div class="alert alert-success" style="color:white;">
                     {{ session()->get('success')}}
+                    <div style="float: right">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 </div>
                 @endif
             </div>
