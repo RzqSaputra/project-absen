@@ -20,13 +20,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <form action="{{ route('PUpdate',$user->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card">
                             <div class="card-header pb-0">
                                 <div class="d-flex align-items-center">
                                     <p class="mb-0">Edit Profil</p>
                                 </div>
                               
-                               
                                 <div class="mb-3">
                                     <img class="img-preview img-fluid mb-3 col-sm-5" style="width:20%;">
                                     <hr>
@@ -41,25 +41,25 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Nama</label>
-                                            <input class="form-control" type="text" value="{{ $user->name }}">
+                                            <input class="form-control" type="text" value="{{ $user->name }}" name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Email</label>
-                                            <input class="form-control" type="email" value="{{ $user->email }}">
+                                            <input class="form-control" type="email" value="{{ $user->email }}" name="email">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">noHp</label>
-                                            <input class="form-control" type="tel" value="{{ $user->noHp }}">
+                                            <input class="form-control" type="tel" value="{{ $user->noHp }}" name="nohp">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Alamat</label>
-                                            <input class="form-control" type="text" value="{{ $user->alamat }}">
+                                            <input class="form-control" type="text" value="{{ $user->alamat }}" name="alamat">
                                         </div>
                                     </div>
                                 </div>
@@ -69,10 +69,11 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Posisi</label>
-                                            <input class="form-control" type="text" value="{{ $user->tentang }}">
+                                            <input class="form-control" type="text" value="{{ $user->tentang }}" name="tentang">
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <button type="submit" class="btn btn-primary mb-2">Update</button>
                             </div>
                         </div>
