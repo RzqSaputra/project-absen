@@ -21,10 +21,10 @@ class JabatanSeeder extends Seeder
             'namaJabatan' => 'Head Office'
         ]);
         Jabatan::create([
-            'namaJabatan' => 'Karyawan Tetap'
+            'namaJabatan' => 'Pegawai Tetap'
         ]);
         Jabatan::create([
-            'namaJabatan' => 'Karyawan Magang'
+            'namaJabatan' => 'Pegawai Sementara'
         ]);
     }
 }

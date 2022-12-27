@@ -19,11 +19,11 @@ class CabangSeeder extends Seeder
             'alamat' => 'Jl. M.Sohor'
         ]);
         Cabang::create([
-            'namaCabang' => 'Jakarta',
+            'namaCabang' => 'Tangerang',
             'alamat' => 'Jl. Budi Utomo'
         ]);
         Cabang::create([
-            'namaCabang' => 'Tangerang',
+            'namaCabang' => 'Kubu Raya',
             'alamat' => 'Jl. Jahahaha'
         ]);
 
