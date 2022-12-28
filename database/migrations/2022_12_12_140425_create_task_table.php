@@ -1,10 +1,10 @@
-<?php
+ <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class CreateTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('task', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('task_id');
+            $table->foreignId('id_pegawai')->nullable()->index('fk_task_to_pegawai');
             $table->char('namaTask');
-            $table->date('mulaiTask');
-            $table->date('selesaiTask');
-            $table->text('keterangan');
+            $table->datetime('mulaiTask');
+            $table->datetime('selesaiTask');
+            $table->string('keterangan');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

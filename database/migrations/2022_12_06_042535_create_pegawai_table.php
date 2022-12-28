@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use App\Models\Jabatan;
 use Illuminate\Database\Migrations\Migration;
@@ -17,19 +17,15 @@ class CreatePegawaiTable extends Migration
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
             $table->char('nip', 10)->unique();
+            $table->foreignId('jabatan_id')->nullable()->index('fk_appointment_to_doctor');
+            $table->foreignId('cabang_id')->nullable()->index('fk_pegawai_to_cabang');
             $table->string('nama');
             $table->date('tglLahir');
-            $table->enum('jKel', ['Laki-laki', 'Perempuan'])->default('Laki-laki');
-            $table->char('alamat');
-            $table->char('noHp', 13);
-            // $table->char('jabatan');
-            $table->foreignId('jabatan_id');
-            // $table->char('cabang');
-            $table->foreignId('cabang_id');
+            $table->enum('jKel', ['Laki-Laki', 'Perempuan'])->default('Laki-Laki');
+            $table->char('alamat')->nullable();;
+            $table->char('noHp', 13)->nullable();;            
             $table->timestamps();
-            // Foreign Key Relation
-            $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('cabang_id')->references('id')->on('cabang')->onDelete('cascade')->onUpdate('cascade');
+            $table->softDeletes();
         });
     }
 
