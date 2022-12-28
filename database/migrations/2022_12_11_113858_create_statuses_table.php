@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPenggunasTable extends Migration
+class CreateStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateDetailPenggunasTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_pengguna', function (Blueprint $table) {
+        Schema::create('status', function (Blueprint $table) {
             $table->id();
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateDetailPenggunasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_pengguna');
+        Schema::dropIfExists('status');
     }
 }

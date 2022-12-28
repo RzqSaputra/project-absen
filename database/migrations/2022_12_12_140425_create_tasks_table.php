@@ -15,12 +15,15 @@ class CreateTasksTable extends Migration
     {
         Schema::create('task', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('task_id');
+            $table->foreignId('pegawai_id');
             $table->char('namaTask');
             $table->date('mulaiTask');
             $table->date('selesaiTask');
             $table->text('keterangan');
             $table->timestamps();
+
+            // Foreign Key Relation
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -42,7 +42,7 @@ class ProfilController extends Controller
         $user = User::where('id',$id)->first();
         $user-> name = $request->name;
         $user->save();
-        return redirect('profil.profil');
+        return redirect('home');
     }
 	
 }
