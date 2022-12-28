@@ -10,10 +10,10 @@
     </div>
     <hr class="horizontal dark mt-0">
     <style>
-        /* .nav-item:hover:focus {
+        .nav-item:hover:focus {
             background-color: whitesmoke;
             color: white;
-        } */
+        }
     </style>
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
@@ -27,6 +27,33 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/absen">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-app text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Presensi</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/task">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Task Harian</span>
+                </a>
+            </li>
+            {{-- <li class="nav-item">
+                <a class="nav-link" href="/taskMingguan">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Task Mingguan</span>
+                </a>
+            </li> --}}
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                     aria-expanded="false" aria-controls="collapseTwo">
                     <div
@@ -56,7 +83,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Akun</h6>

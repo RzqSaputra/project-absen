@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'Sabang Digital Indonesia',
             'email' => 'sdi@gmail.com',
             'password' => bcrypt('sdi123')
-
         ]);
 
         //seeder Cabang

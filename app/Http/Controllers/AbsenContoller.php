@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AbsenContoller extends Controller
 {
-    public function index(){
+    public function absen(){
         return view('absen');
     }
 }

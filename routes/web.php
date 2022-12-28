@@ -8,7 +8,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AbsenContoller;
+use App\Http\Controllers\TaskMingguanController;
 
 Route::group(['middleware' => ['auth']], function(){
 // Route Pengguna
@@ -31,7 +31,20 @@ Route::post('/pegawai/update/{id}', [PegawaiController::class, 'updatePegawai'])
 Route::get('/pegawai/delete/{id}', [PegawaiController::class, 'destroy']);
 
 // Route Absen
-Route::get('/absen', [AbsenContoller::class, 'index'])->name('absen.index');
+Route::get('/absen', [PegawaiController::class, 'absen'])->name('absen.absen');
+//task harian
+Route::get('/task', [PegawaiController::class, 'task'])->name('task.task');
+Route::get('/task/tambah', [PegawaiController::class,'tambahTask'])->name('task.tambahTask');
+Route::post('/task', [PegawaiController::class,'simpanTask'])->name('task.simpanTask');
+Route::post('/task/update/{id}', [PegawaiController::class, 'updateTask'])->name('task.updateTask');
+// Route::get('/task/delete/{id}', [PegawaiController::class, 'taskDestroy']);
+
+//task mingguan
+// Route::get('/taskMingguan', [TaskMingguanController::class,'taskMingguan'])->name('TaskMingguan.taskMingguan');
+// Route::get('/taskMingguan/tambah', [TaskMingguanController::class,'tambahTaskMingguan'])->name('TaskMingguan.tambahTaskMingguan');
+// Route::post('/taskMingguan', [TaskMingguanController::class,'simpanTaskMingguan'])->name('TaskMingguan.simpanTaskMingguan');
+// Route::post('/taskMingguan/update/{id}', [TaskMingguanController::class, 'updateTaskMingguan'])->name('TaskMingguan.updateTaskMingguan');
+
 });
 
 
