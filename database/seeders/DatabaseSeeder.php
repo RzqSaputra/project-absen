@@ -20,12 +20,8 @@ class DatabaseSeeder extends Seeder
         //seeder user
         User::create([
             'email' => 'sdi@gmail.com',
-<<<<<<< HEAD
-            'password' => bcrypt('sdi123')
-=======
             'password' => bcrypt('sdi123'),
 
->>>>>>> c0a3c85500b7b39993b284c7fad4f5061be318cd
         ]);
 
         $this->call(CabangSeeder::class);
