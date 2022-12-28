@@ -22,8 +22,6 @@ class CreateTaskTable extends Migration
             $table->string('keterangan');
             $table->timestamps();
 
-            // Foreign Key Relation
-            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -26,10 +26,6 @@ class CreatePresensiTable extends Migration
             $table->foreignId('pegawai_id');
             $table->foreignId('status_id');
             $table->timestamps();
-
-            // Foreign Key Relation
-            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('status_id')->references('id')->on('status')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
