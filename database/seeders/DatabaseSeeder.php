@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Cabang;
-use App\Models\Jabatan;
 
 
 class DatabaseSeeder extends Seeder
@@ -21,14 +19,19 @@ class DatabaseSeeder extends Seeder
 
         //seeder user
         User::create([
-            'username' => 'Sabang Digital Indonesia',
             'email' => 'sdi@gmail.com',
+<<<<<<< HEAD
+            'password' => bcrypt('sdi123')
+=======
             'password' => bcrypt('sdi123'),
 
+>>>>>>> c0a3c85500b7b39993b284c7fad4f5061be318cd
         ]);
 
         $this->call(CabangSeeder::class);
         $this->call(JabatanSeeder::class);
+        $this->call(StatusSeeder::class);
+
 
         
     }

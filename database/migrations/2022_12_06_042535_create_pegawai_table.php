@@ -21,7 +21,7 @@ class CreatePegawaiTable extends Migration
             $table->foreignId('cabang_id')->nullable()->index('fk_pegawai_to_cabang');
             $table->string('nama');
             $table->date('tglLahir');
-            $table->enum('jKel', ['Laki-Laki', 'Perempuan'])->default('Laki-Laki');
+            $table->enum('jKel', ['Laki-laki', 'Perempuan'])->default('Laki-laki');
             $table->char('alamat')->nullable();;
             $table->char('noHp', 13)->nullable();;            
             $table->timestamps();
