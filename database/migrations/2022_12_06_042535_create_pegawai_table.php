@@ -17,7 +17,7 @@ class CreatePegawaiTable extends Migration
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
             $table->char('nip', 10)->unique();
-            $table->foreignId('jabatan_id')->nullable()->index('fk_appointment_to_doctor');
+            $table->foreignId('jabatan_id')->nullable()->index('fk_pegawai_to_jabatan');
             $table->foreignId('cabang_id')->nullable()->index('fk_pegawai_to_cabang');
             $table->string('nama');
             $table->date('tglLahir');
