@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Cabang;
-use App\Models\Jabatan;
 
 
 class DatabaseSeeder extends Seeder
@@ -20,40 +18,23 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(3)->create();
 
         //seeder user
+<<<<<<< HEAD
         // User::create([
         //     'username' => 'Sabang Digital Indonesia',
         //     'email' => 'sdi@gmail.com',
         //     'password' => bcrypt('sdi123')
+=======
+        User::create([
+            'email' => 'sdi@gmail.com',
+            'password' => bcrypt('sdi123'),
+>>>>>>> bdf6a6d21a73b64905eed56908b8e4e3184dc53a
 
         // ]);
 
-        //seeder Cabang
-        Cabang::create([
-            'namaCabang' => 'Pontianak',
-            'alamat' => 'Jl. M.Sohor'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Jakarta',
-            'alamat' => 'Jl. Budi Utomo'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Tangerang',
-            'alamat' => 'Jl. Jahahaha'
-        ]);
+        $this->call(CabangSeeder::class);
+        $this->call(JabatanSeeder::class);
+        $this->call(StatusSeeder::class);
 
-        //seeder Jabatan
-        Jabatan::create([
-            'namaJabatan' => 'CEO'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Head Office'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Karyawan Tetap'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Karyawan Magang'
-        ]);
 
         
     }

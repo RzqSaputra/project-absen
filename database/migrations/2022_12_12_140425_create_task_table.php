@@ -1,10 +1,10 @@
-<?php
+ <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenggunaTable extends Migration
+class CreateTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreatePenggunaTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengguna', function (Blueprint $table) {
+        Schema::create('task', function (Blueprint $table) {
             $table->id();
-            $table->char('nip', 10)->unique();
-            $table->string('nama');
-            $table->string('email');
-            $table->date('tglLahir');
-            $table->char('alamat');
-            $table->char('noHp', 13);
-            $table->char('jabatan');
+            $table->foreignId('id_pegawai');
+            $table->char('namaTask');
+            $table->datetime('mulaiTask');
+            $table->datetime('selesaiTask');
+            $table->string('keterangan');
             $table->timestamps();
+
         });
     }
 
@@ -33,6 +32,6 @@ class CreatePenggunaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengguna');
+        Schema::dropIfExists('task');
     }
 }

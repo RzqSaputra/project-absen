@@ -185,11 +185,11 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$p->jabatan}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$p->jabatan_id}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$p->cabang}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$p->cabang_id}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="#" data-bs-toggle="modal" data-bs-target=" #editModal-{{$p->id}}">
