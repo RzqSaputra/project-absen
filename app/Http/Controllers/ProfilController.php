@@ -37,7 +37,6 @@ class ProfilController extends Controller
         ->update([
             'name'=>$request->name,
             'email'=> $request->email,
-            'password'=>$request->password,
             'nohp'=>$request->nohp,
             'alamat'=>$request->alamat,
         ]);
