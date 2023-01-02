@@ -10,14 +10,13 @@ class PegawaiController extends Controller
         $cari = $request->cari;
         // $datas = Pegawai::all();
         $pegawai = Pegawai::where('nama', 'LIKE', '%'.$cari.'%')
-            ->orWhere('nip', 'LIKE', '%'.$cari.'%')
-            ->orWhere('nama', 'LIKE', '%'.$cari.'%')
-            ->paginate(15);
+                    ->orWhere('nip', 'LIKE', '%'.$cari.'%')
+                    ->orWhere('nama', 'LIKE', '%'.$cari.'%')
+                    ->paginate(15);
         $pegawai->withPath('pegawai');
         $pegawai->appends($request->all());
-        return view('pegawai.home', compact(
-            'pegawai', 'cari'
-        ));
+        return view('pegawai.home', compact('pegawai', 'cari')
+        );
     }
 
     
@@ -74,7 +73,7 @@ class PegawaiController extends Controller
     public function destroy($id){
         $pegawai = Pegawai::where('id', $id);
         $pegawai->delete();
-        return redirect()->route('pegawai.index');
+        return redirect()->route('pengawai.index')->with('msg',"Data {$pegawai['name']} berhasil dihapus" );
     }
 
     public function absen(){

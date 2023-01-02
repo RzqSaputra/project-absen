@@ -9,8 +9,6 @@
         <!-- Navbar -->
         @include('Template.navbar')
         
-        
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,6 +135,25 @@
             </div>
                 {{-- end modal tambah data --}}
             <div class="row">
+                <div class="col-md-12">
+                    @if(session()->has('pesan'))
+                    <div class="alert alert-success" style="color:white;">
+                        {{ session()->get('pesan')}}
+                        <div style="float: right">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+
+                    @if (session()->has('msg'))
+                    <div class="alert alert-success" style="color:white;">
+                        {{ session()->get('msg') }}
+                        <div style="float: right">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+                </div>
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">

@@ -144,14 +144,13 @@
                     @endif
 
                     @if (session()->has('msg'))
-                    <div class="alert alert-success alert-dismissible fade show text-start" role="alert" style="color:white;">
+                    <div class="alert alert-success" style="color:white;">
                         {{ session()->get('msg') }}
                         <div style="float: right">
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
                     @endif
-
                 </div>
             
                 <div class="col-12">
