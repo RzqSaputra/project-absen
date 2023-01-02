@@ -1,6 +1,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/sabang.png">
     <title>
@@ -16,4 +19,8 @@
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('/assets/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="{{ asset('plugins/ijaboCropTool/ijaboCropTool.min.css') }}">
+    
   </head>
