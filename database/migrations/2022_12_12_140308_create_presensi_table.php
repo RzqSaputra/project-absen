@@ -23,8 +23,6 @@ class CreatePresensiTable extends Migration
             $table->text('keterangan');
             $table->longText('foto')->nullable();
             $table->string('lokasi');
-            $table->foreignId('pegawai_id');
-            $table->foreignId('status_id');
             $table->timestamps();
         });
     }

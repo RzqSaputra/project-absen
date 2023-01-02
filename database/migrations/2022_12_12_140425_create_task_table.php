@@ -15,7 +15,7 @@ class CreateTaskTable extends Migration
     {
         Schema::create('task', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pegawai_id');
+            $table->foreignId('id_pegawai');
             $table->char('namaTask');
             $table->datetime('mulaiTask');
             $table->datetime('selesaiTask');
