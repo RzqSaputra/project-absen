@@ -16,6 +16,16 @@
 
         <!-- start container -->
         <div class="container-fluid py-4">
+        <div class="col-md-12">
+                @if(session()->has('pesan'))
+                <div class="alert alert-success" style="color:white;">
+                    {{ session()->get('pesan')}}
+                    <div style="float: right">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <form action="{{ route('PUpdate',$user->id) }}" method="POST" enctype="multipart/form-data" id="AdminInfoForm">

@@ -29,20 +29,13 @@
                         <div class="modal-body">
                             <form action="{{ route('pengguna.simpanPengguna'); }}" method="POST">
                                 @csrf
-                                <div class='mb-3'>
-                                    <label for="nip" class="form-label">NIP</label>
-                                    <input required type="number" name="nip" id="nip" value="{{ old("nip") }}"
-                                        class="form-control @error('nip') is-invalid @enderror">
-                                    @error('nip')
-                                    <div class='text-danger'>{{ $message }}</div>
-                                    @enderror
-                                </div>
+                               
 
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Lengkap</label>
-                                    <input required type="text" name="nama" id="nama" value="{{ old('nama') }}"
-                                        class="form-control @error('nama') is-invalid @enderror">
-                                    @error('nama')
+                                    <label for="name" class="form-label">Nama Lengkap</label>
+                                    <input required type="text" name="name" id="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror">
+                                    @error('name')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -56,7 +49,16 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">password</label>
+                                    <input required type="password" name="password" id="password"
+                                        value="{{ old('password') }}"
+                                        class="form-control @error('password') is-invalid @enderror">
+                                    @error('password')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+<!-- 
                                 <div class="mb-3">
                                     <label for="tglLahir" class="form-label">Tanggal Lahir</label>
                                     <input required type="date" name="tglLahir" id="tglLahir"
@@ -65,7 +67,7 @@
                                     @error('tglLahir')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
-                                </div>
+                                </div> -->
 
                                 <div class="mb-3">
                                     <label for="alamat" class="form-label">Alamat</label>
@@ -77,21 +79,29 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="noHp" class="form-label">Nomor Hp</label>
-                                    <input required type="tel" name="noHp" id="noHp" value="{{ old('noHp') }}"
-                                        class="form-control @error('noHp') is-invalid @enderror">
-                                    @error('noHp')
+                                    <label for="nohp" class="form-label">Nomor Hp</label>
+                                    <input required type="tel" name="nohp" id="nohp" value="{{ old('nohp') }}"
+                                        class="form-control @error('nohp') is-invalid @enderror">
+                                    @error('nohp')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="jabatan" class="form-label">Jabatan</label>
-                                    <input required type="text" name="jabatan" id="jabatan" value="{{ old('jabatan') }}"
-                                        class="form-control @error('jabatan') is-invalid @enderror">
-                                    @error('jabatan')
+                                    <label for="role" class="form-label">Role</label>
+                                    <select name="role" id="role" class="form-control" value="{{ old('role') }}">
+                                        <option>-- Role--</option>
+                                        <option value="Admin" {{ old('role')=='Admin' ? 'selected' : '' }}>
+                                            Admin
+                                        </option>
+                                        <option value="Pegawai" {{ old('role')=='Pegawai' ? 'selected' : '' }}>
+                                            Pegawai
+                                        </option>
+                                        class="form-control @error('role') is-invalid @enderror">
+                                    @error('role')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
+                                    </select>
                                 </div>
 
                                 <div class="mb-3">
@@ -123,6 +133,27 @@
             </div>
             {{-- end modal tambah data --}}
             <div class="row">
+                <div class="col-md-12">
+                    @if(session()->has('pesan'))
+                    <div class="alert alert-success" style="color:white;">
+                        {{ session()->get('pesan')}}
+                        <div style="float: right">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+
+                    @if (session()->has('msg'))
+                    <div class="alert alert-success alert-dismissible fade show text-start" role="alert" style="color:white;">
+                        {{ session()->get('msg') }}
+                        <div style="float: right">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
+
+                </div>
+            
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
@@ -144,32 +175,32 @@
                                                 Email</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Jabatan</th>
+                                                Role</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($pengguna as $key => $p)
+                                        @foreach($user as $key => $p)
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="px-2 mb-0 text-xs">{{$pengguna->firstItem()+$key}}
+                                                        <h6 class="px-2 mb-0 text-xs">{{$user->firstItem()+$key}}
                                                         </h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <span class="text-xs font-weight-bold mb-0">{{$p->nama}}</span>
+                                                <span class="text-xs font-weight-bold mb-0">{{$p->name}}</span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <span class="text-xs font-weight-bold mb-0">{{$p->email}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$p->jabatan}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$p->role}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="#" data-bs-toggle="modal"
@@ -190,11 +221,11 @@
                                 </table>
                                 <small class="px-3" style="font-weight: bold">
                                     Showing
-                                    {{$pengguna->firstItem()}}
+                                    {{$user->firstItem()}}
                                     to
-                                    {{$pengguna->lastItem()}}
+                                    {{$user->lastItem()}}
                                     of
-                                    {{$pengguna->total()}}
+                                    {{$user->total()}}
                                     entries
                                 </small>
                                 <style>
@@ -203,10 +234,10 @@
                                     }
                                 </style>
                                 <div class="page" style="float: right; font-weight:bold; margin-right: 50px; margin-top: 20px;">
-                                    {{$pengguna->links()}}
+                                    {{$user->links()}}
                                 </div>
                                 {{-- modal edit data --}}
-                                @foreach($pengguna as $p)
+                                @foreach($user as $p)
                                 <div class="modal fade" id="editModal-{{$p->id}}" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
@@ -221,11 +252,11 @@
                                                 <form action="/pengguna/update/{{ $p->id }}" method="POST">
                                                     @csrf
                                                     <div class="mb-3">
-                                                        <label for="nama" class="form-label">Nama</label>
-                                                        <input type="nama" name="nama" id="nama"
-                                                            value="{{ old('nama') ?? $p->nama }}"
-                                                            class="form-control @error('nama') is-invalid @enderror">
-                                                        @error('nama')
+                                                        <label for="name" class="form-label">Nama</label>
+                                                        <input type="name" name="name" id="name"
+                                                            value="{{ old('name') ?? $p->name }}"
+                                                            class="form-control @error('name') is-invalid @enderror">
+                                                        @error('name')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -241,11 +272,11 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">Jabatan</label>
-                                                        <input type="text" name="jabatan" id="jabatan"
-                                                            value="{{ old('jabatan') ?? $p->jabatan }}"
-                                                            class="form-control @error('jabatan') is-invalid @enderror">
-                                                        @error('jabatan')
+                                                        <label for="role" class="form-label">Role</label>
+                                                        <input type="text" name="role" id="role"
+                                                            value="{{ old('role') ?? $p->role}}"
+                                                            class="form-control @error('role') is-invalid @enderror">
+                                                        @error('role')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -263,12 +294,12 @@
                                 {{-- end modal edit data --}}
 
                                 <!-- Delete Modal-->
-                                @foreach($pengguna as $p)
+                                @foreach($user as $p)
                                 <div class="modal fade" id="deleteModal-{{ $p->id }}"
                                     aria-labelledby="exampleModalLabel{{ $p->id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content" style="padding: 15px">
-                                            <div class="modal-body">Hapus data {{$p->nama }} ?</div>
+                                            <div class="modal-body">Hapus data {{$p->name }} ?</div>
                                             <div style="margin-right: 10px;">
                                                 <a class="btn btn-danger" href="/pengguna/delete/{{$p->id}}"
                                                     style="float: right">Hapus</a>
