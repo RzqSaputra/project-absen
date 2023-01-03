@@ -120,9 +120,9 @@
                                     <label for="jabatan" class="form-label">Jabatan</label>
                                     <select name="jabatan" id="jabatan" class="form-control" value="{{ old('jabatan') }}">
                                         <option>-- Pilih Jabatan --</option>
-                                        {{-- @foreach ($positions as $position)
-                                            <option value="{{ $position->id }}">{{ $position->position_name }}</option>
-                                        @endforeach --}}
+                                        @foreach ($jabatan as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+                                        @endforeach
                                     </select>
                                     @error('jabatan')
                                     <div class="text-danger">{{ $message }}</div>
@@ -133,20 +133,15 @@
                                     <label for="cabang" class="form-label">Cabang</label>
                                     <select name="cabang" id="cabang" class="form-control" value="{{ old('cabang') }}">
                                         <option>-- Pilih Cabang --</option>
-                                        <option value="1" {{ old('cabang')=='1' ? 'selected' : '' }}>
-                                            Pontianak
-                                        </option>
-                                        <option value="2" {{ old('cabang')=='2' ? 'selected' : '' }}>
-                                            Tanggerang
-                                        </option>
-                                        <option value="3" {{ old('cabang')=='3' ? 'selected' : '' }}>
-                                            Kubu Raya
-                                        </option>
+                                        @foreach ($cabang as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
+                                    @endforeach
                                     </select>
                                     @error('cabang')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+
                                 <div style="float: right">
                                     <button type="submit" class="btn btn-primary mb-2">Daftar</button>
                                 </div>
