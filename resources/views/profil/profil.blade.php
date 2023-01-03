@@ -46,12 +46,6 @@
                             </div>
 
                             <div class="card-body">
-                                <!-- <div class="card-header p-2">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item"><a class="nav-link active" href="#personal_info" data-toggle="tab">Informasi User</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#change_password" data-toggle="tab">Ubah Password</a></li>
-                                    </ul>  
-                                </div>   -->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -67,13 +61,6 @@
                                             <span class="text-danger error-text email_error"></span>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Password</label>
-                                            <input class="form-control" type="password" value="{{ Auth::user()->password }}" name="password">
-                                            <span class="text-danger error-text password_error"></span>
-                                        </div>
-                                    </div> -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">noHp</label>

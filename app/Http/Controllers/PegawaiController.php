@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
 use App\Models\Task;
+use App\Models\Jabatan;
+use App\Models\Cabang;
+
 class PegawaiController extends Controller
 {
     public function index(Request $request){
@@ -15,13 +18,10 @@ class PegawaiController extends Controller
         ->paginate(15);
         $pegawai->withPath('pegawai');
         $pegawai->appends($request->all());
-        return view('pegawai.home', compact('pegawai', 'cari')
+        $jabatan = Jabatan::all();
+        $cabang = Cabang::all();
+        return view('pegawai.home', compact('pegawai', 'cari', 'jabatan', 'cabang')
         );
-    }
-
-    
-    public function tambahPegawai(){
-        return view('pegawai.form-daftar');
     }
 
 
