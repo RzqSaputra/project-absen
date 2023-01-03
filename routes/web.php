@@ -13,7 +13,7 @@ use App\Http\Controllers\TaskMingguanController;
 Route::group(['middleware' => ['auth']], function(){
 
 // Route Home/Dashboard
-Route::get('/home',                     [HomeController::class, 'index'])->name('home.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 // Route Pengguna
 Route::get('/pengguna',              [PenggunaController::class, 'index'])->name('pengguna.index');
@@ -41,14 +41,6 @@ Route::get('/task',                  [PegawaiController::class, 'task'])->name('
 Route::get('/task/tambah',           [PegawaiController::class,'tambahTask'])->name('task.tambahTask');
 Route::post('/task',                 [PegawaiController::class,'simpanTask'])->name('task.simpanTask');
 Route::post('/task/update/{id}',     [PegawaiController::class, 'updateTask'])->name('task.updateTask');
-// Route::get('/task/delete/{id}',   [PegawaiController::class, 'taskDestroy']);
-
-//task mingguan
-// Route::get('/taskMingguan',              [TaskMingguanController::class,'taskMingguan'])->name('TaskMingguan.taskMingguan');
-// Route::get('/taskMingguan/tambah',       [TaskMingguanController::class,'tambahTaskMingguan'])->name('TaskMingguan.tambahTaskMingguan');
-// Route::post('/taskMingguan',             [TaskMingguanController::class,'simpanTaskMingguan'])->name('TaskMingguan.simpanTaskMingguan');
-// Route::post('/taskMingguan/update/{id}', [TaskMingguanController::class, 'updateTaskMingguan'])->name('TaskMingguan.updateTaskMingguan');
-
 });
 
 
@@ -63,6 +55,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/profil',               [ProfilController::class, 'index'])->name('profil.index');
 Route::get('/profil/create',        [ProfilController::class, 'create'])->name('profil.create');
 Route::post('/profil/PUpdate/{id}', [ProfilController::class, 'PUpdate'])->name('PUpdate');
+Route::post('crop', [ProfilController::class, 'crop'])->name('crop');
+Route::post('change-password',[ProfilController::class,'changePassword'])->name('adminChangePassword');
 Route::post('crop',                 [ProfilController::class, 'crop'])->name('crop');
 Route::post('change-password',      [ProfilController::class,'changePassword'])->name('adminChangePassword');
 

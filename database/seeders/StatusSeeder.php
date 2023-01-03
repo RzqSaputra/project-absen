@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Jabatan;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class JabatanSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,39 +15,30 @@ class JabatanSeeder extends Seeder
      */
     public function run()
     {
-        $jabatan =[
+        $status =[
             [
-                'nama_jabatan' => 'CEO',
-<<<<<<< HEAD
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-        ];
-    
-=======
-               'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'nama_jabatan' => 'Head Office',
+                'keterangan' => 'Hadir',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'nama_jabatan' => 'Pegawai Tetap',
+                'keterangan' => 'Izin',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'nama_jabatan' => 'Pegawai Sementara',
+                'keterangan' => 'Sakit',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-           
+            [
+                'keterangan' => 'Alpa',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ];
 
         // this array $consultation will be insert to table 'consultation'
->>>>>>> 9403d601fce832cd25edddb39f8368af4a4e084a
-        Jabatan::insert($jabatan);
+        Status::insert($status);
     }
 }

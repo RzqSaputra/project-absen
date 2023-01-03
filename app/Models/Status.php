@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Cabang extends Model
+class Status extends Model
 {
-   // use HasFactory;
-   public $table = 'cabang';
+    // use HasFactory;
+   public $table = 'status';
 
    protected $dates = [
        'created_at',
@@ -18,16 +17,14 @@ class Cabang extends Model
    ];  
 
    protected $fillable =[
-       'nama_cabang',
-       'alamat',
+       'keterangan',
        'created_at',
        'updated_at',
        'deleted_at',
    ];
 
-   public function pegawai()
+   public function presensi()
    {
-    return $this->hasMany('App\Models\pegawai', 'cabang_id');
+    return $this->hasMany('App\Models\Presensi', 'status_id');
    }
-   
 }
