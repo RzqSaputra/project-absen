@@ -26,7 +26,6 @@ class penggunaController extends Controller
 
     public function simpanPengguna(Request $request){
         $validateData = $request->validate([
-           
             'name' => 'required|min:1|max:50',
             'email' => 'required',
             'password' => 'required',

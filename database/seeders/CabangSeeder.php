@@ -1,9 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Cabang;
 
+use App\Models\Cabang;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CabangSeeder extends Seeder
 {
@@ -14,18 +15,27 @@ class CabangSeeder extends Seeder
      */
     public function run()
     {
-        Cabang::create([
-            'namaCabang' => 'Pontianak',
-            'alamat' => 'Jl. M.Sohor'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Tangerang',
-            'alamat' => 'Jl. Budi Utomo'
-        ]);
-        Cabang::create([
-            'namaCabang' => 'Kubu Raya',
-            'alamat' => 'Jl. Jahahaha'
-        ]);
+       $cabang =[
+        [
+            'nama_cabang' => 'Pontianak',
+            'alamat' => 'Jl. M. Sohor', 
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ],
+        [
+            'nama_cabang' => 'Kubu Raya',
+            'alamat' => 'Jl. Adisucipto', 
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ],
+        [
+            'nama_cabang' => 'Tanggerang',
+            'alamat' => 'Jl. Budi Utomo', 
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ],
+    ];
 
+    Cabang::insert($cabang);
     }
 }
