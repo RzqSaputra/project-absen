@@ -101,12 +101,6 @@
                                     @enderror
                                 </div>
 
-                                <div class='mb-3'>
-                                    <label for="alamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control" name="alamat" id="alamat"
-                                        rows="3">{{ old('alamat') }}</textarea>
-                                </div>
-
                                 <div class="mb-3">
                                     <label for="noHp" class="form-label">Nomor Hp</label>
                                     <input required type="tel" name="noHp" id="noHp" value="{{ old('noHp') }}"
@@ -146,6 +140,11 @@
                                     @error('cabang')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
+                                </div>
+                                <div class='mb-3'>
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <textarea class="form-control" name="alamat" id="alamat"
+                                        rows="3">{{ old('alamat') }}</textarea>
                                 </div>
                                 <div style="float: right">
                                     <button type="submit" class="btn btn-primary mb-2">Daftar</button>

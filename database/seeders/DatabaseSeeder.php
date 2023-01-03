@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<?php
-
-namespace Database\Seeders;
-
-use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $this->call([
-            CabangSeeder::class,
-            JabatanSeeder::class,
-        ]);
-    }
-}
-=======
 <?php
 
 namespace Database\Seeders;
@@ -46,4 +23,3 @@ class DatabaseSeeder extends Seeder
     ]); 
     }
 }
->>>>>>> 9403d601fce832cd25edddb39f8368af4a4e084a

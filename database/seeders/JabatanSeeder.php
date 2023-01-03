@@ -18,14 +18,7 @@ class JabatanSeeder extends Seeder
         $jabatan =[
             [
                 'nama_jabatan' => 'CEO',
-<<<<<<< HEAD
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-        ];
-    
-=======
-               'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
@@ -43,11 +36,9 @@ class JabatanSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-           
         ];
 
         // this array $consultation will be insert to table 'consultation'
->>>>>>> 9403d601fce832cd25edddb39f8368af4a4e084a
         Jabatan::insert($jabatan);
     }
 }
