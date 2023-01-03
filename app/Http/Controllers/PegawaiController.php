@@ -71,10 +71,10 @@ class PegawaiController extends Controller
     }
 
     
-    public function destroy($id){
-        $pegawai = Pegawai::where('id', $id);
+    public function deletePegawai($id){
+        $pegawai = Pegawai::where('id',$id)->first();
         $pegawai->delete();
-        return redirect()->route('pengawai.index')->with('msg',"Data {$pegawai['name']} berhasil dihapus" );
+        return redirect()->route('pegawai.index')->with('msg',"Data {$pegawai['nama']} berhasil dihapus" );
     }
 
     public function absen(){
