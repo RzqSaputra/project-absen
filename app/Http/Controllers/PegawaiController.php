@@ -101,6 +101,7 @@ class PegawaiController extends Controller
             'mulaiTask' => 'required',
             'selesaiTask' => 'required',
             'keterangan' => 'required',
+            'id_pegawai' => ''
         ]);
         
         Task::create($validateData);
@@ -119,9 +120,4 @@ class PegawaiController extends Controller
         return redirect()->route('task.task');
         }
 
-        public function taskDestroy($id){
-            $pegawai = Pegawai::where('id', $id);
-            $pegawai->delete();
-            return redirect()->route('task.task');
-        }
 }
