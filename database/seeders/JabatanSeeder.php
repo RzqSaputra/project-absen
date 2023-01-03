@@ -18,7 +18,7 @@ class JabatanSeeder extends Seeder
         $jabatan =[
             [
                 'nama_jabatan' => 'CEO',
-               'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
@@ -36,7 +36,6 @@ class JabatanSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-           
         ];
 
         // this array $consultation will be insert to table 'consultation'

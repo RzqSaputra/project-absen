@@ -13,9 +13,9 @@ class PegawaiController extends Controller
         $cari = $request->cari;
         // $datas = Pegawai::all();
         $pegawai = Pegawai::where('nama', 'LIKE', '%'.$cari.'%')
-                    ->orWhere('nip', 'LIKE', '%'.$cari.'%')
-                    ->orWhere('nama', 'LIKE', '%'.$cari.'%')
-                    ->paginate(15);
+        ->orWhere('nip', 'LIKE', '%'.$cari.'%')
+        ->orWhere('nama', 'LIKE', '%'.$cari.'%')
+        ->paginate(15);
         $pegawai->withPath('pegawai');
         $pegawai->appends($request->all());
         $jabatan = Jabatan::all();
@@ -70,10 +70,10 @@ class PegawaiController extends Controller
     }
 
     
-    public function destroy($id){
-        $pegawai = Pegawai::where('id', $id);
+    public function deletePegawai($id){
+        $pegawai = Pegawai::where('id',$id)->first();
         $pegawai->delete();
-        return redirect()->route('pengawai.index')->with('msg',"Data {$pegawai['name']} berhasil dihapus" );
+        return redirect()->route('pegawai.index')->with('msg',"Data {$pegawai['nama']} berhasil dihapus" );
     }
 
     public function absen(){
@@ -100,6 +100,7 @@ class PegawaiController extends Controller
             'mulaiTask' => 'required',
             'selesaiTask' => 'required',
             'keterangan' => 'required',
+            'id_pegawai' => ''
         ]);
         
         Task::create($validateData);
@@ -118,9 +119,4 @@ class PegawaiController extends Controller
         return redirect()->route('task.task');
         }
 
-        public function taskDestroy($id){
-            $pegawai = Pegawai::where('id', $id);
-            $pegawai->delete();
-            return redirect()->route('task.task');
-        }
 }

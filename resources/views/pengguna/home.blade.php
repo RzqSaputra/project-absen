@@ -29,8 +29,6 @@
                         <div class="modal-body">
                             <form action="{{ route('pengguna.simpanPengguna'); }}" method="POST">
                                 @csrf
-                               
-
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama Lengkap</label>
                                     <input required type="text" name="name" id="name" value="{{ old('name') }}"
@@ -58,7 +56,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-<!-- 
+                                <!-- 
                                 <div class="mb-3">
                                     <label for="tglLahir" class="form-label">Tanggal Lahir</label>
                                     <input required type="date" name="tglLahir" id="tglLahir"
@@ -134,14 +132,6 @@
             {{-- end modal tambah data --}}
             <div class="row">
                 <div class="col-md-12">
-                    @if(session()->has('pesan'))
-                    <div class="alert alert-success" style="color:white;">
-                        {{ session()->get('pesan')}}
-                        <div style="float: right">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                    @endif
 
                     @if (session()->has('msg'))
                     <div class="alert alert-success" style="color:white;">

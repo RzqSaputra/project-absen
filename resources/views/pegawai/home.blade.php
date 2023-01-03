@@ -101,12 +101,6 @@
                                     @enderror
                                 </div>
 
-                                <div class='mb-3'>
-                                    <label for="alamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control" name="alamat" id="alamat"
-                                        rows="3">{{ old('alamat') }}</textarea>
-                                </div>
-
                                 <div class="mb-3">
                                     <label for="noHp" class="form-label">Nomor Hp</label>
                                     <input required type="tel" name="noHp" id="noHp" value="{{ old('noHp') }}"
@@ -120,29 +114,35 @@
                                     <label for="jabatan" class="form-label">Jabatan</label>
                                     <select name="jabatan" id="jabatan" class="form-control"
                                         value="{{ old('jabatan') }}">
+                                    <label for="jabatan_id" class="form-label">Jabatan</label>
+                                    <select name="jabatan_id" id="jabatan_id" class="form-control" value="{{ old('jabatan_id') }}">
                                         <option>-- Pilih Jabatan --</option>
                                         @foreach ($jabatan as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
                                         @endforeach
                                     </select>
-                                    @error('jabatan')
+                                    @error('jabatan_id')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="cabang" class="form-label">Cabang</label>
-                                    <select name="cabang" id="cabang" class="form-control" value="{{ old('cabang') }}">
-                                        <option>-- Pilih Cabang --</option>
-                                        @foreach ($cabang as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
-                                        @endforeach
+                                    <label for="cabang_id" class="form-label">Cabang</label>
+                                    <select name="cabang_id" id="cabang_id" class="form-control" value="{{ old('cabang_id') }}">
+                                    <option>-- Pilih Cabang --</option>
+                                    @foreach ($cabang as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
+                                    @endforeach
                                     </select>
-                                    @error('cabang')
+                                    @error('cabang_id')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                <div class='mb-3'>
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <textarea class="form-control" name="alamat" id="alamat"
+                                        rows="3">{{ old('alamat') }}</textarea>
+                                </div>
                                 <div style="float: right">
                                     <button type="submit" class="btn btn-primary mb-2">Daftar</button>
                                 </div>
@@ -156,6 +156,14 @@
 
             <div class="row">
                 <div class="col-12">
+                    @if(session()->has('pesan'))
+                    <div class="alert alert-success" style="color:white;">
+                        {{ session()->get('pesan')}}
+                        <div style="float: right">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
                     <div class="card mb-4">
                         <div class="card-header pb-0">
                             <h6>Data Pegawai</h6>
@@ -188,7 +196,7 @@
                                     <tbody>
                                         @foreach($pegawai as $key => $p)
                                         <tr>
-                                            <td>
+                                            <td>z
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="px-2 mb-0 text-xs">{{$pegawai->firstItem()+$key}}
@@ -286,14 +294,9 @@
 
                                                     <div class="mb-3">
                                                         <label for="jabatan" class="form-label">Jabatan</label>
-                                                        <select name="jabatan" id="jabatan" class="form-control"
-                                                            value="{{ old('jabatan') }}">
-                                                            <option>{{  $p->jabatan->nama_jabatan }}</option>
-                                                            @foreach ($jabatan as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
+                                                        <input type="text" name="jabatan" id="jabatan"
+                                                            value="{{ old('jabatan') ?? $p->jabatan_id }}"
+                                                            class="form-control @error('jabatan') is-invalid @enderror">
                                                         @error('jabatan')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
@@ -303,10 +306,10 @@
                                                         <label for="cabang" class="form-label">Cabang</label>
                                                         <select name="cabang" id="cabang" class="form-control"
                                                             value="{{ old('cabang') }}">
-                                                            <option>{{  $p->cabang->nama_cabang }}</option>
+                                                            <option>{{ $p->cabang_id }}</option>
+                                                            <option>-- Pilih Cabang --</option>
                                                             @foreach ($cabang as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nama_cabang }}
-                                                            </option>
+                                                            <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
                                                             @endforeach
                                                         </select>
                                                         @error('cabang')

@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'email' => 'sdi@gmail.com',
                 'password' => bcrypt('123'),
+                'name' => 'Sabang Digital Indonesia',
                 'role' => 'Admin',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

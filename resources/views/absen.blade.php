@@ -99,6 +99,9 @@
             video {
                 border-radius: 20px;
             }
+            canvas {
+                border-radius: 20px;
+            }
         </style>
         <div class="container">
             <div class="start">
