@@ -15,25 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(3)->create();
-
-        //seeder user
-
-        // User::create([
-        //     'username' => 'Sabang Digital Indonesia',
-        //     'email' => 'sdi@gmail.com',
-        //     'password' => bcrypt('sdi123')
-        User::create([
-            'email' => 'sdi@gmail.com',
-            'password' => bcrypt('sdi123'),
-
-        ]);
-
-        $this->call(CabangSeeder::class);
-        $this->call(JabatanSeeder::class);
-        $this->call(StatusSeeder::class);
-
-
-        
+    $this->call([
+        CabangSeeder::class,
+        JabatanSeeder::class,
+        StatusSeeder::class,
+        UserSeeder::class,
+    ]); 
     }
 }

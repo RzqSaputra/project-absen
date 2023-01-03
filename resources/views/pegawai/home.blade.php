@@ -8,33 +8,33 @@
     <main class="main-content position-relative border-radius-lg ">
         <!-- Navbar -->
         @include('Template.navbar')
-        
-        
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content" style="padding: 15px">
-                <div class="modal-body">Apakah anda yakin untuk logout?</div>
-                <div style="margin-right: 10px;">
-                    @if (Auth::user())
-                    <form action="{{ asset('logout') }}" method="post">
-                        @csrf
-                        <button class="btn btn-danger" style="float: right">Logout</button>
-                    </form>
-                    @else
-                    <h1>Tidak Ada Session</h1>
-                    @endif
+
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="padding: 15px">
+                    <div class="modal-body">Apakah anda yakin untuk logout?</div>
+                    <div style="margin-right: 10px;">
+                        @if (Auth::user())
+                        <form action="{{ asset('logout') }}" method="post">
+                            @csrf
+                            <button class="btn btn-danger" style="float: right">Logout</button>
+                        </form>
+                        @else
+                        <h1>Tidak Ada Session</h1>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         </div>
-    </div>
-</nav>
-
+        </div>
+        </nav>
         <!-- End Navbar -->
+
 
         <div class="container-fluid py-4">
             <div class="col-6">
@@ -42,13 +42,16 @@
                     <button class="btn bg-gradient-dark mb-3">Tambah Data</button>
                 </a>
             </div>
+
+
             {{-- modal tambah data --}}
             <div class="modal fade" id="tambahModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Pendaftaran Pegawai</h5>
-                            <button class="btn-close bg-danger" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <button class="btn-close bg-danger" type="button" data-bs-dismiss="modal"
+                                aria-label="Close">
                             </button>
                         </div>
                         <div class="modal-body">
@@ -83,20 +86,17 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="noHp" class="form-label">Nomor Hp</label>
-                                    <input required type="tel" name="noHp" id="noHp" value="{{ old('noHp') }}"
-                                        class="form-control @error('noHp') is-invalid @enderror">
-                                    @error('noHp')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="jabatan" class="form-label">Jabatan</label>
-                                    <input required type="text" name="jabatan" id="jabatan"
-                                        value="{{ old('jabatan') }}"
-                                        class="form-control @error('jabatan') is-invalid @enderror">
-                                    @error('jabatan')
+                                    <label for="jKel" class="form-label">Jenis Kelamin</label>
+                                    <select name="jKel" id="jKel" class="form-control" value="{{ old('jKel') }}">
+                                        <option>-- Jenis Kelamin --</option>
+                                        <option value="Laki-laki" {{ old('jKel')=='Laki-laki' ? 'selected' : '' }}>
+                                            Laki-laki
+                                        </option>
+                                        <option value="Perempuan" {{ old('jKel')=='Perempuan' ? 'selected' : '' }}>
+                                            Perempuan
+                                        </option>
+                                    </select>
+                                    @error('jkel')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -108,19 +108,39 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="noHp" class="form-label">Nomor Hp</label>
+                                    <input required type="tel" name="noHp" id="noHp" value="{{ old('noHp') }}"
+                                        class="form-control @error('noHp') is-invalid @enderror">
+                                    @error('noHp')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="jabatan" class="form-label">Jabatan</label>
+                                    <select name="jabatan" id="jabatan" class="form-control" value="{{ old('jabatan') }}">
+                                        <option>-- Pilih Jabatan --</option>
+                                        {{-- @foreach ($positions as $position)
+                                            <option value="{{ $position->id }}">{{ $position->position_name }}</option>
+                                        @endforeach --}}
+                                    </select>
+                                    @error('jabatan')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="cabang" class="form-label">Cabang</label>
-                                    <select name="cabang" id="cabang" class="form-control"
-                                        value="{{ old('cabang') }}">
+                                    <select name="cabang" id="cabang" class="form-control" value="{{ old('cabang') }}">
                                         <option>-- Pilih Cabang --</option>
-                                        <option value="Pontianak"
-                                            {{ old('cabang')=='Pontianak' ? 'selected' : '' }}>Pontianak
+                                        <option value="1" {{ old('cabang')=='1' ? 'selected' : '' }}>
+                                            Pontianak
                                         </option>
-                                        <option value="Jakarta"
-                                            {{ old('cabang')=='Jakarta' ? 'selected' : '' }}>Jakarta</option>
-                                        <option value="Papua" {{ old('cabang')=='Papua' ? 'selected' : '' }}>
-                                            Papua</option>
-                                        <option value="Jawa Barat"
-                                            {{ old('cabang')=='Jawa Barat' ? 'selected' : '' }}>Jawa Barat
+                                        <option value="2" {{ old('cabang')=='2' ? 'selected' : '' }}>
+                                            Tanggerang
+                                        </option>
+                                        <option value="3" {{ old('cabang')=='3' ? 'selected' : '' }}>
+                                            Kubu Raya
                                         </option>
                                     </select>
                                     @error('cabang')
@@ -135,7 +155,9 @@
                     </div>
                 </div>
             </div>
-                {{-- end modal tambah data --}}
+            {{-- end modal tambah data --}}
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
@@ -173,7 +195,8 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="px-2 mb-0 text-xs">{{$pegawai->firstItem()+$key}}</h6>
+                                                        <h6 class="px-2 mb-0 text-xs">{{$pegawai->firstItem()+$key}}
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </td>
@@ -192,12 +215,14 @@
                                                     class="text-secondary text-xs font-weight-bold">{{$p->cabang_id}}</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target=" #editModal-{{$p->id}}">
+                                                <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target=" #editModal-{{$p->id}}">
                                                     <button class="btn btn-warning">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $p->id }}">
+                                                <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal-{{ $p->id }}">
                                                     <button class="btn btn-danger">
                                                         <i class="fa fa-trash"></i></button>
                                                 </a>
@@ -216,14 +241,16 @@
                                     entries
                                 </small>
                                 <style>
-                                    .page .page-item.active .page-link  {
+                                    .page .page-item.active .page-link {
                                         color: white;
                                     }
+
                                 </style>
-                                <div class="page" style="float: right; font-weight:bold; margin-right: 50px; margin-top: 20px;">
+                                <div class="page"
+                                    style="float: right; font-weight:bold; margin-right: 50px; margin-top: 20px;">
                                     {{$pegawai->links()}}
                                 </div>
-                                
+
                                 {{-- modal edit data --}}
                                 @foreach($pegawai as $p)
                                 <div class="modal fade" id="editModal-{{$p->id}}" aria-labelledby="exampleModalLabel"
@@ -232,12 +259,13 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Edit Pegawai</h5>
-                                                <button class="btn-close bg-danger" type="button" data-bs-dismiss="modal" aria-label="Close">
+                                                <button class="btn-close bg-danger" type="button"
+                                                    data-bs-dismiss="modal" aria-label="Close">
                                                 </button>
                                             </div>
-                                            <div class="modal-body">    
+                                            <div class="modal-body">
                                                 <form action="/pegawai/update/{{ $p->id }}" method="POST">
-                                                    
+
                                                     @csrf
                                                     <div class="mb-3">
                                                         <label for="nip" class="form-label">Nip
@@ -296,7 +324,8 @@
                                                     </div>
 
                                                     <div style="float: right">
-                                                        <button type="submit" class="btn btn-primary mb-2">Update</button>
+                                                        <button type="submit"
+                                                            class="btn btn-primary mb-2">Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -314,21 +343,22 @@
                                         <div class="modal-content" style="padding: 15px">
                                             <div class="modal-body">Hapus data {{$p->nama }} ?</div>
                                             <div style="margin-right: 10px;">
-                                            <a class="btn btn-danger" href="/pegawai/delete/{{$p->id}}" style="float: right">Hapus</a>
+                                                <a class="btn btn-danger" href="/pegawai/delete/{{$p->id}}"
+                                                    style="float: right">Hapus</a>
                                             </div>
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- footer --}}
-            @include('Template.footer')
-            {{-- end footer --}}
+        </div>
+        {{-- footer --}}
+        @include('Template.footer')
+        {{-- end footer --}}
         </div>
     </main>
     <!--   Core JS Files   -->

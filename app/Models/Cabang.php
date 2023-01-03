@@ -7,8 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cabang extends Model
 {
-    use HasFactory;
-    protected $table = 'cabang';
-    protected $primaryKey ='id';
-    protected $fillable = ['namaCabang','alamat'];
+   // use HasFactory;
+   public $table = 'cabang';
+
+   protected $dates = [
+       'created_at',
+       'updated_at',
+       'deleted_at',
+   ];  
+
+   protected $fillable =[
+       'nama_cabang',
+       'alamat',
+       'created_at',
+       'updated_at',
+       'deleted_at',
+   ];
+
+   public function pegawai()
+   {
+    return $this->hasMany('App\Models\pegawai', 'cabang_id');
+   }
+   
 }

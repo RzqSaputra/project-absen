@@ -1,9 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Jabatan;
 
+use App\Models\Jabatan;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class JabatanSeeder extends Seeder
 {
@@ -14,17 +15,31 @@ class JabatanSeeder extends Seeder
      */
     public function run()
     {
-        Jabatan::create([
-            'namaJabatan' => 'CEO'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Head Office'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Pegawai Tetap'
-        ]);
-        Jabatan::create([
-            'namaJabatan' => 'Pegawai Sementara'
-        ]);
+        $jabatan =[
+            [
+                'nama_jabatan' => 'CEO',
+               'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_jabatan' => 'Head Office',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_jabatan' => 'Pegawai Tetap',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_jabatan' => 'Pegawai Sementara',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+           
+        ];
+
+        // this array $consultation will be insert to table 'consultation'
+        Jabatan::insert($jabatan);
     }
 }

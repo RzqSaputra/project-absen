@@ -31,6 +31,7 @@ class PegawaiController extends Controller
             'nip' => 'required|size:10|unique:pegawai',
             'nama' => 'required|min:1|max:50',
             'tglLahir' => 'required',
+            'jKel' => 'required',
             'alamat' => 'required',
             'noHp' => 'required',
             'jabatan_id' => 'required',

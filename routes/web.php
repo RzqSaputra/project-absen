@@ -59,8 +59,6 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
 Route::get('/profil/create', [ProfilController::class, 'create'])->name('profil.create');
 Route::post('/profil/PUpdate/{id}', [ProfilController::class, 'PUpdate'])->name('PUpdate');
-<<<<<<< HEAD
-=======
 Route::post('crop', [ProfilController::class, 'crop'])->name('crop');
 Route::post('change-password',[ProfilController::class,'changePassword'])->name('adminChangePassword');
 
@@ -68,5 +66,4 @@ Route::post('change-password',[ProfilController::class,'changePassword'])->name(
     
 Route::get('/kamera', function(){
     return view('kamera');
->>>>>>> 55f3e7149b7dac280046d8e1a5153c38a68d0536
 });

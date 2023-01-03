@@ -7,8 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    use HasFactory;
-    protected $table = 'task';
-    protected $primaryKey ='id';
-    protected $fillable = ['namaTask','mulaiTask','selesaiTask','keterangan'];
+    // use HasFactory;
+    public $table = 'task';
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];  
+ 
+    protected $fillable =[
+        'id_pegawai',
+        'namaTask',
+        'mulaiTask',
+        'selesaiTask',
+        'keterangan',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    public function pegawai()
+    {
+     return $this->belongsTo('App\Models\pegawai', 'id_pegawai', 'id');
+    }
 }

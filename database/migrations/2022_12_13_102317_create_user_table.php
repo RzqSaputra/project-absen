@@ -20,8 +20,8 @@ class CreateUserTable extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'pegawai'])->default('pegawai');
             $table->string('image')->nullable();
-            $table->string('nohp');
-            $table->string('alamat');
+            $table->string('nohp')->nullable();
+            $table->string('alamat')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

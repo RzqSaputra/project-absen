@@ -7,12 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Presensi extends Model
 {
-    use HasFactory;
-    protected $table = 'presensi';
-    protected $primaryKey ='id';
-    protected $fillable = ['tglPresensi','jamMasuk','jamPulang','keterangan'];
+    // use HasFactory;
+    public $table = 'presensi';
 
-    public function pengguna(){
-        return $this->belongsTo(Pengguna::class); 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];  
+ 
+    protected $fillable =[
+        'id_pegawai',
+        'status_id',
+        'tglPresensi',
+        'jamMasuk',
+        'jamPulang',
+        'keterangan',
+        'foto',
+        'lokasi',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    public function status()
+    {
+     return $this->belongsTo('App\Models\status', 'status_id', 'id');
     }
 }

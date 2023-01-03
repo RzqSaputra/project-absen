@@ -1,9 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Status;
 
+use App\Models\Status;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class StatusSeeder extends Seeder
 {
@@ -14,14 +15,30 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        Status::create([
-            'keterangan' => 'Izin'
-        ]);
-        Status::create([
-            'keterangan' => 'Sakit'
-        ]);
-        Status::create([
-            'keterangan' => 'Alpa'
-        ]);
+        $status =[
+            [
+                'keterangan' => 'Hadir',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'keterangan' => 'Izin',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'keterangan' => 'Sakit',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'keterangan' => 'Alpa',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+        ];
+
+        // this array $consultation will be insert to table 'consultation'
+        Status::insert($status);
     }
 }
