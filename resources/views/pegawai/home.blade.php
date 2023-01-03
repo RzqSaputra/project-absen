@@ -118,10 +118,11 @@
 
                                 <div class="mb-3">
                                     <label for="jabatan" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-control" value="{{ old('jabatan') }}">
+                                    <select name="jabatan" id="jabatan" class="form-control"
+                                        value="{{ old('jabatan') }}">
                                         <option>-- Pilih Jabatan --</option>
                                         @foreach ($jabatan as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
                                         @endforeach
                                     </select>
                                     @error('jabatan')
@@ -135,7 +136,7 @@
                                         <option>-- Pilih Cabang --</option>
                                         @foreach ($cabang as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
-                                    @endforeach
+                                        @endforeach
                                     </select>
                                     @error('cabang')
                                     <div class="text-danger">{{ $message }}</div>
@@ -203,11 +204,11 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$p->jabatan_id}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$p->jabatan->nama_jabatan}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$p->cabang_id}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$p->cabang->nama_cabang}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="#" data-bs-toggle="modal"
@@ -285,9 +286,14 @@
 
                                                     <div class="mb-3">
                                                         <label for="jabatan" class="form-label">Jabatan</label>
-                                                        <input type="text" name="jabatan" id="jabatan"
-                                                            value="{{ old('jabatan') ?? $p->jabatan }}"
-                                                            class="form-control @error('jabatan') is-invalid @enderror">
+                                                        <select name="jabatan" id="jabatan" class="form-control"
+                                                            value="{{ old('jabatan') }}">
+                                                            <option>{{  $p->jabatan->nama_jabatan }}</option>
+                                                            @foreach ($jabatan as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}
+                                                            </option>
+                                                            @endforeach
+                                                        </select>
                                                         @error('jabatan')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
@@ -297,21 +303,11 @@
                                                         <label for="cabang" class="form-label">Cabang</label>
                                                         <select name="cabang" id="cabang" class="form-control"
                                                             value="{{ old('cabang') }}">
-                                                            <option>{{ $p->cabang }}</option>
-                                                            <option value="Pontianak"
-                                                                {{ old('cabang')=='Pontianak' ? 'selected' : '' }}>
-                                                                Pontianak
+                                                            <option>{{  $p->cabang->nama_cabang }}</option>
+                                                            @foreach ($cabang as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->nama_cabang }}
                                                             </option>
-                                                            <option value="Jakarta"
-                                                                {{ old('cabang')=='Jakarta' ? 'selected' : '' }}>
-                                                                Jakarta</option>
-                                                            <option value="Papua"
-                                                                {{ old('cabang')=='Papua' ? 'selected' : '' }}>
-                                                                Papua</option>
-                                                            <option value="Jawa Barat"
-                                                                {{ old('cabang')=='Jawa Barat' ? 'selected' : '' }}>
-                                                                Jawa Barat
-                                                            </option>
+                                                            @endforeach
                                                         </select>
                                                         @error('cabang')
                                                         <div class="text-danger">{{ $message }}</div>

@@ -24,7 +24,6 @@ class PegawaiController extends Controller
         );
     }
 
-
     public function simpanPegawai(Request $request){
         $validateData = $request->validate([
             'nip' => 'required|size:10|unique:pegawai',
