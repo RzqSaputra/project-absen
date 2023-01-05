@@ -20,7 +20,6 @@ Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.i
 Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
 Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
 Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
-Route::post('change-pw',         [UserController::class,'changePw'])->name('ChangePw');
 
 
 // Route Pegawai

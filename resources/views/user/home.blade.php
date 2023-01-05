@@ -152,12 +152,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <a href="#" data-bs-toggle="modal" 
-                                                    data-bs-target=" #keyModal-{{$p->id}}">
-                                                    <button class="btn btn-dark">
-                                                        <i class="fa fa-key"></i>
-                                                    </button>
-                                                </a>
+                                                
                                                 <a href="#" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal-{{ $p->id }}">
                                                     <button class="btn btn-danger">
@@ -241,54 +236,6 @@
                                 </div>
                                 @endforeach
                                 {{-- end modal edit data --}}
-
-
-                                {{-- modal ubah password --}}
-                                @foreach($user as $p)
-                                <div class="modal fade" id="keyModal-{{$p->id}}" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
-                                                <button class="btn-close bg-danger" type="button"
-                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form class="form-horizontal" action="{{ route('ChangePw') }}" method="POST" id="changePw">
-                                                    @csrf
-                                                    <div class="mb-3">
-                                                        <div div class="form-group">
-                                                            <label for="example-text-input" class="form-control-label">Password Lama</label>
-                                                            <input type="password" class="form-control" id="inputName" placeholder="Enter current password" name="oldpassword">
-                                                            <span class="text-danger error-text oldpassword_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <div div class="form-group">
-                                                            <label for="example-text-input" class="form-control-label">Password Baru</label>
-                                                            <input type="password" class="form-control" id="newpassword" placeholder="Enter new password" name="newpassword">
-                                                            <span class="text-danger error-text newpassword_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <div div class="form-group">
-                                                            <label for="example-text-input" class="form-control-label">Konfirmasi Password Baru</label>
-                                                            <input type="password" class="form-control" id="cnewpassword" placeholder="ReEnter new password" name="cnewpassword">
-                                                            <span class="text-danger error-text cnewpassword_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float: right">
-                                                        <button type="submit" class="btn btn-primary mb-2">Update Password</button>   
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                                {{-- end modal ubah password --}}
 
 
                                 <!-- Delete Modal-->
