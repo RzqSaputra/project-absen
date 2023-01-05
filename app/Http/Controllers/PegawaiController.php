@@ -50,7 +50,7 @@ class PegawaiController extends Controller
 
 
     public function ubahPegawai($id) {
-    $pegawai = Pegawai::select('*')
+    $pegawai = Pegawai::with('cabang', 'jabatan')->select('*')
         ->where('id', $id)
         ->get();
 
@@ -69,6 +69,13 @@ class PegawaiController extends Controller
 
     return redirect()->route('pegawai.index');
     }
+
+    // public function updatePegawai($id) {
+    //     $pegawai = Pegawai::with('jabatan', 'cabang')->findorfail($id);
+    //     $jabatan = Jabatan::all();
+    //     $cabang = Cabang::all();
+    //     return view('pegawai.home', compact('jabatan','cabang'));
+    // }
 
     
     public function deletePegawai($id){
@@ -101,7 +108,7 @@ class PegawaiController extends Controller
             'mulaiTask' => 'required',
             'selesaiTask' => 'required',
             'keterangan' => 'required',
-            'id_pegawai' => ''
+            'id_pegawai' => 'required'
         ]);
         
         Task::create($validateData);

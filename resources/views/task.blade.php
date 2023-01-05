@@ -95,6 +95,14 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">nama</label>
+                                    <input required type="text" name="nama" id="nama" value="{{ old('nama') }}"
+                                        class="form-control @error('nama') is-invalid @enderror">
+                                    @error('nama')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="mulaiTask" class="form-label">Mulai Task</label>
@@ -158,6 +166,9 @@
                                                 No</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Nama Pegawai</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nama Task</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
@@ -186,6 +197,9 @@
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <span class="text-xs font-weight-bold mb-0">{{$t->namaTask}}</span>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="text-xs font-weight-bold mb-0">{{$t->pegawai->nama}}</span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <span class="text-xs font-weight-bold mb-0">{{$t->mulaiTask}}</span>

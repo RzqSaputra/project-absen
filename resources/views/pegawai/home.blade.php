@@ -55,7 +55,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('pegawai.simpanPegawai'); }}" method="POST">
+                            <form action="{{ route('pegawai.simpanPegawai'); }}" method="POST" >
                                 @csrf
                                 <div class='mb-3'>
                                     <label for="nip" class="form-label">NIP</label>
@@ -87,7 +87,7 @@
 
                                 <div class="mb-3">
                                     <label for="jKel" class="form-label">Jenis Kelamin</label>
-                                    <select name="jKel" id="jKel" class="form-control" value="{{ old('jKel') }}">
+                                    <select required name="jKel" id="jKel" class="form-control" value="{{ old('jKel') }}">
                                         <option>-- Jenis Kelamin --</option>
                                         <option value="Laki-laki" {{ old('jKel')=='Laki-laki' ? 'selected' : '' }}>
                                             Laki-laki
@@ -112,7 +112,7 @@
 
                                 <div class="mb-3">
                                     <label for="jabatan_id" class="form-label">Jabatan</label>
-                                    <select name="jabatan_id" id="jabatan_id" class="form-control" value="{{ old('jabatan_id') }}">
+                                    <select required name="jabatan_id" id="jabatan_id" class="form-control" value="{{ old('jabatan_id') }}">
                                         <option>-- Pilih Jabatan --</option>
                                         @foreach ($jabatan as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
@@ -210,7 +210,6 @@
                                             <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{$p->jabatan->nama_jabatan}}</span>
-                                            </td>
                                             <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{$p->cabang->nama_cabang}}</span>
@@ -225,7 +224,7 @@
                                                 <a href="#" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal-{{ $p->id }}">
                                                     <button class="btn btn-danger">
-                                                        <i class="fa fa-trash"></i></button>
+                                                    <i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -266,7 +265,6 @@
                                             </div>
                                             <div class="modal-body">
                                                 <form action="/pegawai/update/{{ $p->id }}" method="POST">
-
                                                     @csrf
                                                     <div class="mb-3">
                                                         <label for="nip" class="form-label">Nip
@@ -290,26 +288,31 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="jabatan" class="form-label">Jabatan</label>
-                                                        <input type="text" name="jabatan" id="jabatan"
-                                                            value="{{ old('jabatan') ?? $p->jabatan_id }}"
-                                                            class="form-control @error('jabatan') is-invalid @enderror">
-                                                        @error('jabatan')
+                                                        <label for="jabatan_id" class="form-label">Jabatan</label>
+                                                        <select name="jabatan_id" id="jabatan_id" class="form-control"
+                                                            value="{{ old('nama_jabatan') }}">
+                                                            <option>{{ $p->jabatan->nama_jabatan }}</option>
+                                                            <option disabled>-- Pilih jabatan --</option>
+                                                            @foreach ($jabatan as $item)
+                                                            <option value="">{{ $item->id }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('jabatan_id')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="cabang" class="form-label">Cabang</label>
-                                                        <select name="cabang" id="cabang" class="form-control"
-                                                            value="{{ old('cabang') }}">
-                                                            <option>{{ $p->cabang_id }}</option>
-                                                            <option>-- Pilih Cabang --</option>
+                                                        <label for="cabang_id" class="form-label">Cabang</label>
+                                                        <select name="cabang_id" id="cabang_id" class="form-control"
+                                                            value="{{ old('nama_cabang') }}">
+                                                            <option>{{ $p->cabang->nama_cabang }}</option>
+                                                            <option disabled>-- Pilih Cabang --</option>
                                                             @foreach ($cabang as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
+                                                            <option value="">{{ $item->nama_cabang }}</option>
                                                             @endforeach
                                                         </select>
-                                                        @error('cabang')
+                                                        @error('cabang_id')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
