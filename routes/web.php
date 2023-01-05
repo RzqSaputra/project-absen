@@ -15,11 +15,12 @@ Route::group(['middleware' => ['auth']], function(){
 // Route Home/Dashboard
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
-// Route Pengguna
+// Route User
 Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
 Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
 Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
 Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
+Route::post('change-pw',         [UserController::class,'changePw'])->name('ChangePw');
 
 
 // Route Pegawai
@@ -50,8 +51,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/profil',               [ProfilController::class, 'index'])->name('profil.index');
 Route::get('/profil/create',        [ProfilController::class, 'create'])->name('profil.create');
 Route::post('/profil/PUpdate/{id}', [ProfilController::class, 'PUpdate'])->name('PUpdate');
-Route::post('crop', [ProfilController::class, 'crop'])->name('crop');
-Route::post('change-password',[ProfilController::class,'changePassword'])->name('adminChangePassword');
+Route::post('crop',                 [ProfilController::class, 'crop'])->name('crop');
+Route::post('change-password',      [ProfilController::class,'changePassword'])->name('adminChangePassword');
 Route::post('crop',                 [ProfilController::class, 'crop'])->name('crop');
 Route::post('change-password',      [ProfilController::class,'changePassword'])->name('adminChangePassword');
 

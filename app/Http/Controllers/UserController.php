@@ -77,6 +77,30 @@ class UserController extends Controller
     }
 
 
+    function changePw(Request $request){
+    $validatedata = \Validator::make($request->all(),[
+        'oldpassword' => 'required',
+        'newpassword' => 'required|confirmed',
+    ]);
+    if ($validatedata->fails()) {
+        dd('kata sandi tidak cocok');
+    }else{
+        if(!Hash::check($request->oldpassword,
+            User::where($request->id)->first()
+            ['password'])) {
+                dd('kata sandi lama tidak cocok');
+            }
+            User::whereId(User::where($request->id)->first()['id'])
+            ->update([
+                'password' =>Hash::make($request->newpassword)
+            ]);
+            return redirect()->route('user.index');
+        }
+    }
+
+
+
+
     public function deleteUser($id){
         $data =User::where('id',$id)->first();
         $data->delete();
