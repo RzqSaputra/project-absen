@@ -16,6 +16,7 @@
                     <button class="btn bg-gradient-dark mb-3">Tambah Data</button>
                 </a>
             </div>
+            
             {{-- modal tambah data --}}
             <div class="modal fade" id="tambahModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -27,7 +28,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('pengguna.simpanPengguna'); }}" method="POST">
+                            <form action="{{ route('user.simpanUser'); }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama Lengkap</label>
@@ -56,43 +57,15 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <!-- 
-                                <div class="mb-3">
-                                    <label for="tglLahir" class="form-label">Tanggal Lahir</label>
-                                    <input required type="date" name="tglLahir" id="tglLahir"
-                                        value="{{ old('tglLahir') }}"
-                                        class="form-control @error('tglLahir') is-invalid @enderror">
-                                    @error('tglLahir')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div> -->
-
-                                <div class="mb-3">
-                                    <label for="alamat" class="form-label">Alamat</label>
-                                    <input required type="tel" name="alamat" id="alamat" value="{{ old('alamat') }}"
-                                        class="form-control @error('alamat') is-invalid @enderror">
-                                    @error('alamat')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="nohp" class="form-label">Nomor Hp</label>
-                                    <input required type="tel" name="nohp" id="nohp" value="{{ old('nohp') }}"
-                                        class="form-control @error('nohp') is-invalid @enderror">
-                                    @error('nohp')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
 
                                 <div class="mb-3">
                                     <label for="role" class="form-label">Role</label>
                                     <select name="role" id="role" class="form-control" value="{{ old('role') }}">
-                                        <option>-- Role--</option>
-                                        <option value="Admin" {{ old('role')=='Admin' ? 'selected' : '' }}>
+                                        <option>-- Role --</option>
+                                        <option value="admin" {{ old('role')=='admin' ? 'selected' : '' }}>
                                             Admin
                                         </option>
-                                        <option value="Pegawai" {{ old('role')=='Pegawai' ? 'selected' : '' }}>
+                                        <option value="pegawai" {{ old('role')=='pegawai' ? 'selected' : '' }}>
                                             Pegawai
                                         </option>
                                         class="form-control @error('role') is-invalid @enderror">
@@ -102,25 +75,6 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="cabang" class="form-label">Cabang</label>
-                                    <select name="cabang" id="cabang" class="form-control" value="{{ old('cabang') }}">
-                                        <option>-- Pilih Cabang --</option>
-                                        <option value="Pontianak" {{ old('cabang')=='Pontianak' ? 'selected' : '' }}>
-                                            Pontianak
-                                        </option>
-                                        <option value="Jakarta" {{ old('cabang')=='Jakarta' ? 'selected' : '' }}>Jakarta
-                                        </option>
-                                        <option value="Papua" {{ old('cabang')=='Papua' ? 'selected' : '' }}>
-                                            Papua</option>
-                                        <option value="Jawa Barat" {{ old('cabang')=='Jawa Barat' ? 'selected' : '' }}>
-                                            Jawa Barat
-                                        </option>
-                                    </select>
-                                    @error('cabang')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
                                 <div style="float: right">
                                     <button type="submit" class="btn btn-primary mb-2">Daftar</button>
                                 </div>
@@ -238,7 +192,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="/pengguna/update/{{ $p->id }}" method="POST">
+                                                <form action="/user/update/{{ $p->id }}" method="POST">
                                                     @csrf
                                                     <div class="mb-3">
                                                         <label for="name" class="form-label">Nama</label>
@@ -290,7 +244,7 @@
                                         <div class="modal-content" style="padding: 15px">
                                             <div class="modal-body">Hapus data {{$p->name }} ?</div>
                                             <div style="margin-right: 10px;">
-                                                <a class="btn btn-danger" href="/pengguna/delete/{{$p->id}}"
+                                                <a class="btn btn-danger" href="/user/delete/{{$p->id}}"
                                                     style="float: right">Hapus</a>
                                             </div>
                                         </div>

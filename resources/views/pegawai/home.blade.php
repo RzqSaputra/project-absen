@@ -9,8 +9,6 @@
         <!-- Navbar -->
         @include('Template.navbar')
 
-
-
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -112,10 +110,15 @@
 
                                 <div class="mb-3">
                                     <label for="jabatan_id" class="form-label">Jabatan</label>
+<<<<<<< HEAD
                                     <select required name="jabatan_id" id="jabatan_id" class="form-control" value="{{ old('jabatan_id') }}">
                                         <option>-- Pilih Jabatan --</option>
+=======
+                                    <select name="jabatan_id" id="jabatan_id" class="form-control" value="{{ old('jabatan_id') }}">
+                                    <option>-- Pilih Jabatan --</option>
+>>>>>>> 6d82558a0fa0e1ec16f5d866d28aade6934cf159
                                         @foreach ($jabatan as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
                                         @endforeach
                                     </select>
                                     @error('jabatan_id')
@@ -135,6 +138,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+
                                 <div class='mb-3'>
                                     <label for="alamat" class="form-label">Alamat</label>
                                     <textarea class="form-control" name="alamat" id="alamat"
@@ -288,6 +292,7 @@
                                                     </div>
 
                                                     <div class="mb-3">
+<<<<<<< HEAD
                                                         <label for="jabatan_id" class="form-label">Jabatan</label>
                                                         <select name="jabatan_id" id="jabatan_id" class="form-control"
                                                             value="{{ old('nama_jabatan') }}">
@@ -298,11 +303,23 @@
                                                             @endforeach
                                                         </select>
                                                         @error('jabatan_id')
+=======
+                                                        <label for="jabatan" class="form-label">Jabatan</label>
+                                                        <select name="jabatan" id="jabatan" class="form-control"
+                                                            value="{{ old('jabatan') }}">
+                                                            <option>{{ $p->jabatan->nama_jabatan }}</option>
+                                                                @foreach ($jabatan as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
+                                                                @endforeach
+                                                        </select>   
+                                                        @error('jabatan')    
+>>>>>>> 6d82558a0fa0e1ec16f5d866d28aade6934cf159
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>
 
                                                     <div class="mb-3">
+<<<<<<< HEAD
                                                         <label for="cabang_id" class="form-label">Cabang</label>
                                                         <select name="cabang_id" id="cabang_id" class="form-control"
                                                             value="{{ old('nama_cabang') }}">
@@ -313,6 +330,17 @@
                                                             @endforeach
                                                         </select>
                                                         @error('cabang_id')
+=======
+                                                        <label for="cabang" class="form-label">Cabang</label>
+                                                        <select name="cabang" id="cabang" class="form-control"
+                                                            value="{{ old('cabang') }}">
+                                                            <option>{{ $p->cabang->nama_cabang }}</option>
+                                                                @foreach ($cabang as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->nama_cabang }}</option>
+                                                                @endforeach
+                                                        </select>   
+                                                        @error('cabang')    
+>>>>>>> 6d82558a0fa0e1ec16f5d866d28aade6934cf159
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
                                                     </div>

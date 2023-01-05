@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AuthController;
@@ -16,23 +16,17 @@ Route::group(['middleware' => ['auth']], function(){
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 // Route Pengguna
-Route::get('/pengguna',              [PenggunaController::class, 'index'])->name('pengguna.index');
-Route::get('/pengguna/tambah',       [homeController::class,'tambahPengguna'])->name('pengguna.tambahPengguna');
-Route::get('/pengguna/tambah',       [PenggunaController::class,'tambahPengguna'])->name('pengguna.tambahPengguna');
-Route::post('/pengguna',             [PenggunaController::class,'simpanPengguna'])->name('pengguna.simpanPengguna');
-Route::get('/pengguna/ubah/{id}',    [PenggunaController::class, 'ubahPengguna'])->name('pengguna.ubahPengguna');
-Route::post('/pengguna/update/{id}', [PenggunaController::class, 'updatePengguna'])->name('pengguna.updatePengguna');
-Route::get('/pengguna/delete/{id}',  [PenggunaController::class, 'deletePengguna'])->name('pengguna.deletePengguna');
+Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
+Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
+Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
+Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
 
 
 // Route Pegawai
 Route::get('/pegawai',               [PegawaiController::class, 'index'])->name('pegawai.index');
-Route::get('/pegawai/tambah',        [PegawaiController::class,'tambahPegawai'])->name('pegawai.tambahPegawai');
 Route::post('/pegawai',              [PegawaiController::class,'simpanPegawai'])->name('pegawai.simpanPegawai');
-Route::get('/pegawai/ubah/{id}',     [PegawaiController::class, 'ubahPegawai'])->name('pegawai.ubahPegawai');
 Route::post('/pegawai/update/{id}',  [PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
 Route::get('/pegawai/delete/{id}',   [PegawaiController::class, 'deletePegawai'])->name('pegawai.deletePegawai');
-// Route::get('/pegawai/delete/{id}',   [PegawaiController::class, 'destroy']);
 
 // Route Absen
 Route::get('/absen',                 [PegawaiController::class, 'absen'])->name('absen.absen');

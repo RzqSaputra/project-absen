@@ -47,12 +47,12 @@
                         </a>
                     </li>
                     <li style="margin-left: -30px; margin-top:-20px;">
-                        <a href="/pengguna" class="nav-link">
+                        <a href="/tampiluser" class="nav-link">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
                                 <i class="ni ni-app text-info text-sm opacity-10"></i>
                             </div>
-                            <span class="d-none nav-link d-sm-inline">Pengguna</span>
+                            <span class="d-none nav-link d-sm-inline">User</span>
                         </a>
                     </li>
                 </ul>

@@ -34,4 +34,9 @@ class Presensi extends Model
     {
      return $this->belongsTo('App\Models\status', 'status_id', 'id');
     }
+
+    public function pegawai()
+    {
+     return $this->belongsTo('App\Models\pegawai', 'pegawai_id', 'id');
+    }
 }
