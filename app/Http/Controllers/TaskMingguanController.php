@@ -22,7 +22,7 @@ class TaskMingguanController extends Controller
         ));
     }
 
-
+    
     public function simpanTaskMingguan(Request $request){
         $validateData = $request->validate([
             'namaTask' => 'required',
@@ -35,6 +35,7 @@ class TaskMingguanController extends Controller
         session()->flash('pesan',"Penambahan Data {$validateData['namaTask']} berhasil");
         return redirect(route('taskMingguan.taskMingguan'));
     }
+
 
     public function updateTaskMingguan(Request $request) {
         $taskMingguan = TaskMingguan::where('id', $request->id)

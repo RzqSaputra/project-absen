@@ -42,28 +42,13 @@ class PegawaiController extends Controller
     }
 
 
-    public function editPegawai(Pegawai $pegawai)
-    {
-        return view('pegawai.edit',['pegawai' => $pegawai]);
-    }
-
-
-    public function ubahPegawai($id) {
-    $pegawai = Pegawai::select('*')
-        ->where('id', $id)
-        ->get();
-
-    return view('pegawai.edit', ['pegawai' => $pegawai]);
-    }
-
-
-    public function updatePegawai(Request $request) {
+    public function updatePegawai(Request $request, Cabang $cabang) {
     $pegawai = Pegawai::where('id', $request->id)
         ->update([
             'nip' => $request->nip,
             'nama' => $request->nama,
-            'jabatan_id' => $request->jabatan_id,
-            'cabang_id' => $request->cabang_id,
+            'jabatan_id' => $jabatan->id,
+            'cabang_id' => $cabang->id,
         ]);
 
     return redirect()->route('pegawai.index');

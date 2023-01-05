@@ -20,9 +20,6 @@ class CreateUserTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->bcrypt();
             $table->enum('role', ['admin', 'pegawai'])->default('pegawai');
-            $table->string('image')->nullable();
-            $table->string('nohp')->nullable();
-            $table->string('alamat')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
