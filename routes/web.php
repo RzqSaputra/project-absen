@@ -13,8 +13,9 @@ use App\Http\Controllers\TaskMingguanController;
 Route::group(['middleware' => ['auth']], function(){
 
 // Route Home/Dashboard
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::get('/dashboard', [HomeController::class, 'dash'])->name('dashboard.dash');
+// Route::get('home.index', [HomeController::class,'index']);
+Route::get('/home',             [HomeController::class, 'index'])->name('home.index');
+Route::get('/dashboard',        [HomeController::class, 'dash'])->name('dashboard.dash');
 
 // Route User
 Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
@@ -53,8 +54,7 @@ Route::get('/profil/create',        [ProfilController::class, 'create'])->name('
 Route::post('/profil/PUpdate/{id}', [ProfilController::class, 'PUpdate'])->name('PUpdate');
 Route::post('crop',                 [ProfilController::class, 'crop'])->name('crop');
 Route::post('change-password',      [ProfilController::class,'changePassword'])->name('adminChangePassword');
-Route::post('crop',                 [ProfilController::class, 'crop'])->name('crop');
-Route::post('change-password',      [ProfilController::class,'changePassword'])->name('adminChangePassword');
+
 
 });
     
