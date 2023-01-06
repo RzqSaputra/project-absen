@@ -95,7 +95,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
-                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Karyawan</p>
+                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Pegawai</p>
                                             <h5 class="font-weight-bolder">
                                                 {{ $count }}
                                             </h5>
@@ -116,7 +116,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
-                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Karyawan Telat</p>
+                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Pegawai Telat</p>
                                             <h5 class="font-weight-bolder">
                                                 0
                                             </h5>
@@ -137,7 +137,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
-                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Karyawan Alpa</p>
+                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Pegawai Alpa</p>
                                             <h5 class="font-weight-bolder">
                                                 0
                                             </h5>
@@ -158,7 +158,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
-                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Karyawan Tidak Absen</p>
+                                            <p class="text-sm mb-0 text-uppercase font-weight-bold">Pegawai Tidak Absen</p>
                                             <h5 class="font-weight-bolder">
                                                 0
                                             </h5>

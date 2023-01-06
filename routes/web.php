@@ -14,6 +14,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 // Route Home/Dashboard
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/dashboard', [HomeController::class, 'dash'])->name('dashboard.dash');
 
 // Route User
 Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');

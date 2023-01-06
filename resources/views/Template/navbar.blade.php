@@ -6,7 +6,7 @@
             <form method="get">
             <div class="input-group">
                 <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" name="cari" value="{{ $cari }}" placeholder="Search" style="padding-right: 150px">
+                <input type="text" class="form-control" name="cari" placeholder="Search" style="padding-right: 150px">
             </div>
             </form>
         </div>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
 
-use App\Models\User;
+use App\Models\pegawai;
 
 class ProfilController extends Controller
 {
@@ -18,30 +18,33 @@ class ProfilController extends Controller
 
     Public function index()
     {
-        $user = User::where('id', Auth::user()->id)->first();
+        $pegawai = pegawai::where('id', Auth::pegawai()->id)->first();
 
-        return view ('profil.profil', compact('user'));
+        return view ('profil.profil', compact('pegawai'));
     }
 
 
     Public function profil()
     {
         $title = 'My Profile';
-        $user = User::where('id', Auth::User()->id)->first();
-        return view('profil.profil', compact('title', 'user'));
+        $pegawai = pegawai::where('id', Auth::pegawai()->id)->first();
+        return view('profil.profil', compact('title', 'pegawai'));
     }
 
     public function PUpdate(Request $request,$id)
     {
-        User::where('id', $request->id)
+        pegawai::where('id', $request->id)
         ->update([
-            'name'=>$request->name,
-            'email'=> $request->email,
-            'nohp'=>$request->nohp,
+            'nama'=>$request->nama,
+            'nip'=>$request->nip,
+            'tglLahir'=> $request->tglLahir,
+            'jKel'=> $request->jKel,
             'alamat'=>$request->alamat,
+            'noHp'=>$request->noHp,
+            
         ]);
 
-        session()->flash('pesan',"Update Profil {$request->name} berhasil");
+        session()->flash('pesan',"Update Profil {$request->nama} berhasil");
         return redirect(route('profil.index'));
     }
 
@@ -56,55 +59,15 @@ class ProfilController extends Controller
         $upload = $file->move(public_path($path), $new_image_name);
         if ($upload) {
 
-            $userInfo = User::where('id', '=', Auth::user()->id)->first();
+            $userInfo = pegawai::where('id', '=', Auth::pegawai()->id)->first();
             $userphoto = $userInfo->image;
             if ($userphoto != '') {
                 unlink($path . $userphoto);
             }
-            User::where('id', '=', Auth::user()->id)->update(['image' => $new_image_name]);
-            return response()->json(['status' => 1, 'msg' => 'Image has been cropped successfully.', 'name' => $new_image_name]);
+            pegawai::where('id', '=', Auth::pegawai()->id)->update(['image' => $new_image_name]);
+            return response()->json(['status' => 1, 'msg' => 'Image has been cropped successfully.', 'nama' => $new_image_name]);
         } else {
             return response()->json(['status' => 0, 'msg' => 'Something went wrong, try again later']);
         }
     }
-
-	function changePassword(Request $request){
-        //Validate form
-        $validator = \Validator::make($request->all(),[
-            'oldpassword'=>[
-                'required', function($attribute, $value, $fail){
-                    if( !\Hash::check($value, Auth::user()->password) ){
-                        return $fail(__('The current password is incorrect'));
-                    }
-                },
-                'min:8',
-                'max:30'
-             ],
-             'newpassword'=>'required|min:8|max:30',
-             'cnewpassword'=>'required|same:newpassword'
-         ],[
-             'oldpassword.required'=>'Enter your current password',
-             'oldpassword.min'=>'Old password must have atleast 8 characters',
-             'oldpassword.max'=>'Old password must not be greater than 30 characters',
-             'newpassword.required'=>'Enter new password',
-             'newpassword.min'=>'New password must have atleast 8 characters',
-             'newpassword.max'=>'New password must not be greater than 30 characters',
-             'cnewpassword.required'=>'ReEnter your new password',
-             'cnewpassword.same'=>'New password and Confirm new password must match'
-         ]);
-
-        if( !$validator->passes() ){
-            return response()->json(['status'=>0,'error'=>$validator->errors()->toArray()]);
-        }else{
-             
-         $update = User::find(Auth::user()->id)->update(['password'=>\Hash::make($request->newpassword)]);
-
-         if( !$update ){
-             return response()->json(['status'=>0,'msg'=>'Something went wrong, Failed to update password in db']);
-         }else{
-             return response()->json(['status'=>1,'msg'=>'Your password has been changed successfully']);
-         }
-        }
-    }
-
 }

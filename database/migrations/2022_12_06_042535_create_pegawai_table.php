@@ -22,8 +22,9 @@ class CreatePegawaiTable extends Migration
             $table->string('nama');
             $table->date('tglLahir');
             $table->enum('jKel', ['Laki-laki', 'Perempuan'])->default('Laki-laki');
-            $table->char('alamat')->nullable();;
-            $table->char('noHp', 13)->nullable();;            
+            $table->char('alamat')->nullable();
+            $table->char('noHp', 13)->nullable();
+            $table->string('image')->nullable();            
             $table->timestamps();
             $table->softDeletes();
         });
