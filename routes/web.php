@@ -12,10 +12,15 @@ use App\Http\Controllers\TaskMingguanController;
 
 Route::group(['middleware' => ['auth']], function(){
 
+// ADMIN
+
+// AUTH
+Route::get('/',         [AuthController::class, 'index'])->name('login.index');
+Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');
+
 // Route Home/Dashboard
-// Route::get('home.index', [HomeController::class,'index']);
 Route::get('/home',             [HomeController::class, 'index'])->name('home.index');
-Route::get('/dashboard',        [HomeController::class, 'dash'])->name('dashboard.dash');
 
 // Route User
 Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
@@ -30,6 +35,10 @@ Route::post('/pegawai',              [PegawaiController::class,'simpanPegawai'])
 Route::post('/pegawai/update/{id}',  [PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
 Route::get('/pegawai/delete/{id}',   [PegawaiController::class, 'deletePegawai'])->name('pegawai.deletePegawai');
 
+//PEGAWAI
+//home
+Route::get('/dashboard',        [HomeController::class, 'dash'])->name('dashboard.dash');
+
 // Route Absen
 Route::get('/absen',                 [PegawaiController::class, 'absen'])->name('absen.absen');
 
@@ -39,12 +48,6 @@ Route::get('/task/tambah',           [PegawaiController::class,'tambahTask'])->n
 Route::post('/task',                 [PegawaiController::class,'simpanTask'])->name('task.simpanTask');
 Route::post('/task/update/{id}',     [PegawaiController::class, 'updateTask'])->name('task.updateTask');
 });
-
-
-// AUTH
-Route::get('/',         [AuthController::class, 'index'])->name('login.index');
-Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
-Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');
 
 
 //Route Profil
