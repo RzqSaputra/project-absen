@@ -47,11 +47,7 @@
                         </a>
                     </li>
                     <li style="margin-left: -30px; margin-top:-20px;">
-<<<<<<< HEAD
                         <a href="/user  " class="nav-link">
-=======
-                        <a href="/user" class="nav-link">
->>>>>>> d8fd20e142df8d41d6cf1330636e3f3c78cbadd9
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
                                 <i class="ni ni-app text-info text-sm opacity-10"></i>
