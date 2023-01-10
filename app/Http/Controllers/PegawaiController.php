@@ -3,31 +3,35 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
-use App\Models\Task;
+// use App\Models\Task;
 use App\Models\Jabatan;
 use App\Models\Cabang;
+use App\Models\User;
 
 class PegawaiController extends Controller
 {
     public function index(Request $request){
         $cari = $request->cari;
         // $datas = Pegawai::all();
-        $pegawai = Pegawai::where('nama', 'LIKE', '%'.$cari.'%')
+        $pegawai = Pegawai::where('nip', 'LIKE', '%'.$cari.'%')
         ->orWhere('nip', 'LIKE', '%'.$cari.'%')
-        ->orWhere('nama', 'LIKE', '%'.$cari.'%')
+        ->orWhere('nip', 'LIKE', '%'.$cari.'%')
         ->paginate(15);
         $pegawai->withPath('pegawai');
         $pegawai->appends($request->all());
         $jabatan = Jabatan::all();
+        $user = User::all();
         $cabang = Cabang::all();
-        return view('pegawai.home', compact('pegawai', 'cari', 'jabatan', 'cabang')
+        return view('pegawai.home', compact('pegawai', 'cari','jabatan','cabang','user')
         );
     }
 
+
     public function simpanPegawai(Request $request){
+
         $validateData = $request->validate([
             'nip' => 'required|size:10|unique:pegawai',
-            'nama' => 'required|min:1|max:50',
+            'user_id' => 'required',
             'tglLahir' => 'required',
             'jKel' => 'required',
             'alamat' => 'required',
@@ -35,24 +39,41 @@ class PegawaiController extends Controller
             'jabatan_id' => 'required',
             'cabang_id' => 'required',
         ]);
-        
-        Pegawai::create($validateData);
-        session()->flash('pesan',"Penambahan Data {$validateData['nama']} berhasil");
-        return redirect(route('pegawai.index'));
+
+        Pegawai::create([
+            'nip' => $request->nip,
+            'user_id' => $request->user_id,
+            'tglLahir' => $request->tglLahir,
+            'jKel' => $request->jKel,
+            'alamat' => $request->alamat,
+            'noHp' => $request->noHp,
+            'jabatan_id' => $request->jabatan_id,
+            'cabang_id' => $request->cabang_id,
+            $validateData
+        ]);
+        session()->flash('pesan',"Penambahan Data berhasil");
+        return redirect()->route('pegawai.index');
     }
 
 
-    public function updatePegawai(Request $request, Cabang $cabang) {
-    $pegawai = Pegawai::where('id', $request->id)
+    public function updatePegawai(Request $request) {
+    $pegawai = Pegawai::with('user', 'jabatan', 'cabang')->where('id', $request->id)
         ->update([
             'nip' => $request->nip,
-            'nama' => $request->nama,
-            'jabatan_id' => $jabatan->id,
-            'cabang_id' => $cabang->id,
+            'user_id' => $request->user_id,
+            'jabatan_id' => $request->jabatan_id,
+            'cabang_id' => $request->cabang_id,
         ]);
 
     return redirect()->route('pegawai.index');
     }
+
+    // public function updatePegawai($id) {
+    //     $pegawai = Pegawai::with('jabatan', 'cabang')->findorfail($id);
+    //     $jabatan = Jabatan::all();
+    //     $cabang = Cabang::all();
+    //     return view('pegawai.home', compact('jabatan','cabang'));
+    // }
 
     
     public function deletePegawai($id){
@@ -85,7 +106,7 @@ class PegawaiController extends Controller
             'mulaiTask' => 'required',
             'selesaiTask' => 'required',
             'keterangan' => 'required',
-            'id_pegawai' => ''
+            'id_pegawai' => 'required'
         ]);
         
         Task::create($validateData);

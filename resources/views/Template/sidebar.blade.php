@@ -47,7 +47,11 @@
                         </a>
                     </li>
                     <li style="margin-left: -30px; margin-top:-20px;">
+<<<<<<< HEAD
                         <a href="/user  " class="nav-link">
+=======
+                        <a href="/user" class="nav-link">
+>>>>>>> d8fd20e142df8d41d6cf1330636e3f3c78cbadd9
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
                                 <i class="ni ni-app text-info text-sm opacity-10"></i>
@@ -57,10 +61,89 @@
                     </li>
                 </ul>
             </li>
-
-            <li class="mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Akun</h6>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-badge text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Absensi</span>
+                </a>
+                <ul class="collapse flex-column ms-1" style="list-style: none; margin-top:-10px;" id="collapseThree"
+                    data-bs-parent="#menu">
+                    <li style="margin-left: -30px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-badge text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Absensi Manual</span>
+                        </a>
+                    </li>
+                    <li style="margin-left: -30px; margin-top:-20px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-badge text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Alfa/Izin</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-archive-2 text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Rekap Data</span>
+                </a>
+                <ul class="collapse flex-column ms-1" style="list-style: none; margin-top:-10px;" id="collapseFour"
+                    data-bs-parent="#menu">
+                    <li style="margin-left: -30px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-archive-2 text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Data Absensi</span>
+                        </a>
+                    </li>
+                    <li style="margin-left: -30px; margin-top:-20px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-archive-2 text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Data pegawai telat</span>
+                        </a>
+                    </li>
+                    <li style="margin-left: -30px; margin-top:-20px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-archive-2 text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Data pegawai tidak absen</span>
+                        </a>
+                    </li>
+                    <li style="margin-left: -30px; margin-top:-20px;">
+                        <a href="#" class="nav-link">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
+                                <i class="ni ni-archive-2 text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="d-none nav-link d-sm-inline">Data pegawai alfa/izin</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link " href="/profil">
                     <div

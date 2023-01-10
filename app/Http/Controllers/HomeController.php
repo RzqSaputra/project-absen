@@ -10,4 +10,8 @@ class HomeController extends Controller
         $count = DB::table('pegawai')->count();
         return view('home', compact('count'));
     }
+    
+    public function dash(){
+        return view('dashboard');
+    }
 }

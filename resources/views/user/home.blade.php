@@ -11,11 +11,20 @@
         <!-- End Navbar -->
 
         <div class="container-fluid py-4">
+            
             <div class="col-6">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#tambahModal">
                     <button class="btn bg-gradient-dark mb-3">Tambah Data</button>
                 </a>
             </div>
+            @if(session()->has('pesan'))
+                <div class="alert alert-success" style="color:white;">
+                    {{ session()->get('pesan')}}
+                    <div style="float: right">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
             
             {{-- modal tambah data --}}
             <div class="modal fade" id="tambahModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,6 +161,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
+                                                
                                                 <a href="#" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal-{{ $p->id }}">
                                                     <button class="btn btn-danger">
@@ -216,9 +226,16 @@
 
                                                     <div class="mb-3">
                                                         <label for="role" class="form-label">Role</label>
-                                                        <input type="text" name="role" id="role"
-                                                            value="{{ old('role') ?? $p->role}}"
-                                                            class="form-control @error('role') is-invalid @enderror">
+                                                        <select required name="role" id="role" class="form-control" value="{{ old('role') }}" required>
+                                                            <option value="">{{$p->role}}</option>
+                                                            <option disabled>-- Pilih Role --</option>
+                                                            <option value="admin" {{ old('role')=='admin' ? 'selected' : '' }}>
+                                                                admin
+                                                            </option>
+                                                            <option value="pegawai" {{ old('role')=='pegawai' ? 'selected' : '' }}>
+                                                                pegawai
+                                                            </option>
+                                                        </select>
                                                         @error('role')
                                                         <div class="text-danger">{{ $message }}</div>
                                                         @enderror
@@ -235,6 +252,7 @@
                                 </div>
                                 @endforeach
                                 {{-- end modal edit data --}}
+
 
                                 <!-- Delete Modal-->
                                 @foreach($user as $p)
@@ -262,7 +280,6 @@
         {{-- footer --}}
         @include('Template.footer')
         {{-- end footer --}}
-        </div>
     </main>
     <!--   Core JS Files   -->
     @include('Template.script')

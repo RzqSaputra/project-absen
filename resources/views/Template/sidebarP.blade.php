@@ -18,7 +18,15 @@
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link" href="#">
+=======
+<<<<<<< HEAD
+                <a class="nav-link" href="#">
+=======
+                <a class="nav-link" href="/dashboard">
+>>>>>>> 62c736e6bd4a9e98b6e917fccd66c94107a5bc05
+>>>>>>> d8fd20e142df8d41d6cf1330636e3f3c78cbadd9
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>

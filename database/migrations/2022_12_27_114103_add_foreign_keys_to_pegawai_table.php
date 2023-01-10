@@ -18,6 +18,8 @@ class AddForeignKeysToPegawaiTable extends Migration
             ->references('id')->on('jabatan')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('cabang_id', 'fk_pegawai_to_cabang')
             ->references('id')->on('cabang')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id', 'fk_pegawai_to_users')
+            ->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,7 @@ class AddForeignKeysToPegawaiTable extends Migration
         Schema::table('pegawai', function (Blueprint $table) {
             $table->dropForeign('fk_pegawai_to_jabatan');
             $table->dropForeign('fk_pegawai_to_cabang');
+            $table->dropForeign('fk_pegawai_to_users');
         });
     }
 }
