@@ -111,10 +111,13 @@
                 <button class="btn btn-info" id="click-photo">Click Photo</button>
                 </div>
             </div>
-            <div class="click">
-                <canvas id="canvas" width="320" height="240"></canvas>
-                <button class="btn btn-success" id="click-photo">Present</button>
-            </div>
+            <form action="{{ route('presensi.simpanPresensi')}}" method="POST">
+                @csrf
+                <div class="click">
+                    <canvas id="canvas" width="320" height="240"></canvas>
+                    <button class="btn btn-success" id="click-photo" type="submit">Present</button>
+                </div>
+            </form>
         <script src="script.js"></script>
         </div>
             {{-- footer --}}

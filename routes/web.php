@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LinkController;
@@ -16,7 +16,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 // Route Pengguna
-Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
+Route::get('/user',              [UserController::class, 'index'])->name('user.index');
 Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
 Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
 Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
@@ -28,8 +28,11 @@ Route::post('/pegawai',              [PegawaiController::class,'simpanPegawai'])
 Route::post('/pegawai/update/{id}',  [PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
 Route::get('/pegawai/delete/{id}',   [PegawaiController::class, 'deletePegawai'])->name('pegawai.deletePegawai');
 
+
 // Route Absen
-Route::get('/absen',                 [PegawaiController::class, 'absen'])->name('absen.absen');
+Route::get('/presensi',               [PresensiController::class, 'presensi'])->name('presensi.presensi');
+Route::post('/presensi',              [PresensiController::class,'simpanPresensi'])->name('presensi.simpanPresensi');
+
 
 //task harian
 Route::get('/task',                  [PegawaiController::class, 'task'])->name('task.task');

@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="#">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -44,46 +44,6 @@
                     <span class="nav-link-text ms-1">Task Harian</span>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="/taskMingguan">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Task Mingguan</span>
-                </a>
-            </li> --}}
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-app text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Master Data</span>
-                </a>
-                <ul class="collapse flex-column ms-1" style="list-style: none; margin-top:-10px;" id="collapseOne"
-                    data-bs-parent="#menu">
-                    <li style="margin-left: -30px;">
-                        <a href="/pegawai" class="nav-link">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
-                                <i class="ni ni-app text-info text-sm opacity-10"></i>
-                            </div>
-                            <span class="d-none nav-link d-sm-inline">Pegawai</span>
-                        </a>
-                    </li>
-                    <li style="margin-left: -30px; margin-top:-20px;">
-                        <a href="/pengguna" class="nav-link">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center d-flex align-items-center justify-content-center">
-                                <i class="ni ni-app text-info text-sm opacity-10"></i>
-                            </div>
-                            <span class="d-none nav-link d-sm-inline">Pengguna</span>
-                        </a>
-                    </li>
-                </ul>
-            </li> --}}
 
             <li class="mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Akun</h6>
