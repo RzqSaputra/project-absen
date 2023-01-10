@@ -25,7 +25,7 @@ class UserController extends Controller
         ));
     }
     
-    protected function validator(Request $user)
+    function validator(Request $user)
     {
         return Validator::make($user, [
             'name' => ['required', 'string', 'max:255'],
@@ -35,7 +35,7 @@ class UserController extends Controller
         ]);
     }
 
-    protected function simpanUser(Request $user)
+    function simpanUser(Request $user)
     {
         User::create([
             'name' => $user['name'],

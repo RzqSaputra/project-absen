@@ -3,23 +3,33 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskMingguanController;
 
+<<<<<<< HEAD
 Route::group(['middleware' => ['auth']], function(){
 
 // ADMIN
 
+=======
+// AUTH
+Route::get('/',         [AuthController::class, 'index'])->name('login.index');
+Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');
+
+
+Route::group(['middleware' => ['auth']], function(){
+>>>>>>> e4c043d32e287054066381f89980b998367dfb11
 // Route Home/Dashboard
 Route::get('/home',             [HomeController::class, 'index'])->name('home.index');
 
 // Route Pengguna
-Route::get('/user',        [UserController::class, 'index'])->name('user.index');
-Route::post('/user',       [UserController::class,'simpanUser'])->name('user.simpanUser');
+Route::get('/user',              [UserController::class, 'index'])->name('user.index');
+Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
 Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
 Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
 
@@ -34,8 +44,11 @@ Route::get('/pegawai/delete/{id}',[PegawaiController::class, 'deletePegawai'])->
 //home
 Route::get('/dashboard',        [HomeController::class, 'dash'])->name('dashboard.dash');
 
+
 // Route Absen
-Route::get('/absen',                 [PegawaiController::class, 'absen'])->name('absen.absen');
+Route::get('/presensi',               [PresensiController::class, 'presensi'])->name('presensi.presensi');
+Route::post('/presensi',              [PresensiController::class,'simpanPresensi'])->name('presensi.simpanPresensi');
+
 
 //task harian
 Route::get('/task',                  [PegawaiController::class, 'task'])->name('task.task');

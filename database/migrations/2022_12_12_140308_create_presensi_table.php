@@ -17,12 +17,12 @@ class CreatePresensiTable extends Migration
             $table->id();
             $table->foreignId('pegawai_id')->nullable()->index('fk_presensi_to_pegawai');
             $table->foreignId('status_id')->nullable()->index('fk_presensi_to_status');
-            $table->datetime('tglPresensi');
-            $table->timestamp('jamMasuk');
-            $table->timestamp('jamPulang');
-            $table->text('keterangan');
+            $table->datetime('tglPresensi')->nullable();
+            $table->timestamp('jamMasuk')->nullable();
+            $table->timestamp('jamPulang')->nullable();
+            $table->text('keterangan')->nullable();
             $table->longText('foto')->nullable();
-            $table->string('lokasi');
+            $table->string('lokasi')->nullable();
             $table->timestamps();
         });
     }

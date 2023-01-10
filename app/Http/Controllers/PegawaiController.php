@@ -67,62 +67,10 @@ class PegawaiController extends Controller
 
     return redirect()->route('pegawai.index');
     }
-
-    // public function updatePegawai($id) {
-    //     $pegawai = Pegawai::with('jabatan', 'cabang')->findorfail($id);
-    //     $jabatan = Jabatan::all();
-    //     $cabang = Cabang::all();
-    //     return view('pegawai.home', compact('jabatan','cabang'));
-    // }
-
     
     public function deletePegawai($id){
         $pegawai = Pegawai::where('id',$id)->first();
         $pegawai->delete();
         return redirect()->route('pegawai.index')->with('msg',"Data {$pegawai['nama']} berhasil dihapus" );
     }
-
-    public function absen(){
-        return view('absen');
-    }
-
-    //task harian
-    public function task(Request $request){
-        $cari = $request->cari;
-        // $datas = Pegawai::all();
-        $task = Task::where('namaTask', 'LIKE', '%'.$cari.'%')
-            ->orWhere('namaTask', 'LIKE', '%'.$cari.'%')
-            ->paginate(15);
-        $task->withPath('task');
-        $task->appends($request->all());
-        return view('task', compact(
-            'task', 'cari'
-        ));
-    }
-
-    public function simpanTask(Request $request){
-        $validateData = $request->validate([
-            'namaTask' => 'required',
-            'mulaiTask' => 'required',
-            'selesaiTask' => 'required',
-            'keterangan' => 'required',
-            'id_pegawai' => 'required'
-        ]);
-        
-        Task::create($validateData);
-        session()->flash('pesan',"Penambahan Data {$validateData['namaTask']} berhasil");
-        return redirect(route('task.task'));
-    }
-
-    public function updateTask(Request $request) {
-        $task = Task::where('id', $request->id)
-            ->update([
-                'namaTask' => $request->namaTask,
-                'mulaiTask' => $request->mulaiTask,
-                'selesaiTask' => $request->selesaiTask,
-                'keterangan' => $request->keterangan,
-            ]);
-        return redirect()->route('task.task');
-        }
-
 }

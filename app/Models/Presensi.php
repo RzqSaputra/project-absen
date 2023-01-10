@@ -17,7 +17,7 @@ class Presensi extends Model
     ];  
  
     protected $fillable =[
-        'id_pegawai',
+        'pegawai_id',
         'status_id',
         'tglPresensi',
         'jamMasuk',
