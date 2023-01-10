@@ -161,6 +161,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
+                                                
                                                 <a href="#" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal-{{ $p->id }}">
                                                     <button class="btn btn-danger">
@@ -251,6 +252,7 @@
                                 </div>
                                 @endforeach
                                 {{-- end modal edit data --}}
+
 
                                 <!-- Delete Modal-->
                                 @foreach($user as $p)
