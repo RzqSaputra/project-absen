@@ -227,7 +227,7 @@
                                                     <div class="mb-3">
                                                         <label for="role" class="form-label">Role</label>
                                                         <select required name="role" id="role" class="form-control" value="{{ old('role') }}" required>
-                                                            <option value="">{{$p->role}}</option>
+                                                            <option value="{{$p->role}}">{{$p->role}}</option>
                                                             <option disabled>-- Pilih Role --</option>
                                                             <option value="admin" {{ old('role')=='admin' ? 'selected' : '' }}>
                                                                 admin

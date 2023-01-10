@@ -14,11 +14,6 @@ Route::group(['middleware' => ['auth']], function(){
 
 // ADMIN
 
-// AUTH
-Route::get('/',         [AuthController::class, 'index'])->name('login.index');
-Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
-Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');
-
 // Route Home/Dashboard
 Route::get('/home',             [HomeController::class, 'index'])->name('home.index');
 
@@ -64,3 +59,8 @@ Route::post('change-password',      [ProfilController::class,'changePassword'])-
 Route::get('/kamera', function(){
     return view('kamera');
 });
+
+// AUTH
+Route::get('/',         [AuthController::class, 'index'])->name('login.index');
+Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');

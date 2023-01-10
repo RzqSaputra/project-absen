@@ -63,6 +63,12 @@ class UserController extends Controller
     
     public function updateUser(Request $request)
     {
+        $validateData = $request->validate([
+            'name' => 'required|min:1|max:50',
+            'email' => 'required|unique:users,email',
+            'password' => Hash::make($request['password']),
+            'role' => 'required',
+        ]);
         $user = User::where('id', '=', Auth::user()->id)
             ->update([
                 'name' => $request->name,
@@ -76,7 +82,7 @@ class UserController extends Controller
 
 
     public function deleteUser($id){
-        $data =User::where('id',$id)->first();
+        $data = User::where('id',$id)->first();
         $data->delete();
 
         return redirect()->route('user.index')->with('msg',"Data {$data['name']} berhasil dihapus" );

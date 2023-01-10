@@ -15,7 +15,7 @@
             color: white;
         } */
     </style>
-    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+    <div class="collapse navbar-collapse w-auto h-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/home">
@@ -89,7 +89,7 @@
                     </li>
                 </ul>
             </li>
-           
+
             <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFour"
                     aria-expanded="false" aria-controls="collapseTwo">
