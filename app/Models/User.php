@@ -53,4 +53,9 @@ class User extends Authenticatable
             return asset('users/images/no-image.png');
         }
     }
+
+    public function pegawai()
+    {
+        return $this->hasOne('App\Models\Pegawai', 'user_id');
+    }
 }

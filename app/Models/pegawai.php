@@ -20,7 +20,7 @@ class Pegawai extends Model
         'nip',
         'jabatan_id',
         'cabang_id',
-        'nama',
+        'user_id',
         'tglLahir',
         'jKel',
         'alamat',
@@ -38,6 +38,11 @@ class Pegawai extends Model
     public function jabatan()
     {
      return $this->belongsTo('App\Models\Jabatan', 'jabatan_id', 'id');
+    }
+
+    public function user()
+    {
+     return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
     public function task()

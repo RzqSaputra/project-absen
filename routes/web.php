@@ -16,17 +16,17 @@ Route::group(['middleware' => ['auth']], function(){
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 // Route Pengguna
-Route::get('/tampiluser',        [UserController::class, 'index'])->name('user.index');
-Route::post('/user',             [UserController::class,'simpanUser'])->name('user.simpanUser');
+Route::get('/user',        [UserController::class, 'index'])->name('user.index');
+Route::post('/user',       [UserController::class,'simpanUser'])->name('user.simpanUser');
 Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.updateUser');
 Route::get('/user/delete/{id}',  [UserController::class, 'deleteUser'])->name('user.deleteUser');
 
 
 // Route Pegawai
-Route::get('/pegawai',               [PegawaiController::class, 'index'])->name('pegawai.index');
-Route::post('/pegawai',              [PegawaiController::class,'simpanPegawai'])->name('pegawai.simpanPegawai');
-Route::post('/pegawai/update/{id}',  [PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
-Route::get('/pegawai/delete/{id}',   [PegawaiController::class, 'deletePegawai'])->name('pegawai.deletePegawai');
+Route::get('/pegawai',[PegawaiController::class, 'index'])->name('pegawai.index');
+Route::post('/pegawai',[PegawaiController::class,'simpanPegawai'])->name('pegawai.simpanPegawai');
+Route::post('/pegawai/update/{id}',[PegawaiController::class, 'updatePegawai'])->name('pegawai.updatePegawai');
+Route::get('/pegawai/delete/{id}',[PegawaiController::class, 'deletePegawai'])->name('pegawai.deletePegawai');
 
 // Route Absen
 Route::get('/absen',                 [PegawaiController::class, 'absen'])->name('absen.absen');

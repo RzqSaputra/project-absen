@@ -17,13 +17,14 @@ class CreatePegawaiTable extends Migration
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
             $table->char('nip', 10)->unique();
+            $table->foreignId('user_id')->nullable()->index('fk_pegawai_to_users');
             $table->foreignId('jabatan_id')->nullable()->index('fk_pegawai_to_jabatan');
             $table->foreignId('cabang_id')->nullable()->index('fk_pegawai_to_cabang');
-            $table->string('nama');
+            // $table->string('nama');
             $table->date('tglLahir');
-            $table->enum('jKel', ['Laki-laki', 'Perempuan'])->default('Laki-laki');
-            $table->char('alamat')->nullable();;
-            $table->char('noHp', 13)->nullable();;            
+            $table->enum('jKel', ['Laki-laki', 'Perempuan'])->default('Laki-laki')->nullable();
+            $table->char('alamat')->nullable();
+            $table->char('noHp', 13)->nullable();            
             $table->timestamps();
             $table->softDeletes();
         });

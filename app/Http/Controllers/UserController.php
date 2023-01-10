@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pegawai;
 use App\Models\Task;
 use App\Models\Jabatan;
 use App\Models\Cabang;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -36,20 +37,17 @@ class UserController extends Controller
 
     protected function simpanUser(Request $user)
     {
-        return User::create([
+        User::create([
             'name' => $user['name'],
             'email' => $user['email'],
             'role' => $user['role'],
             'password' => Hash::make($user['password']),
         ]);
-
-        User::create($validateData);
-        session()->flash('pesan',"Penambahan Data {$validateData['nama']} berhasil");
+        session()->flash('pesan',"Penambahan Data {$user['name']} berhasil");
         return redirect(route('user.index'));
-
     }
 
-    // public function simpanUser(array $request){
+    // public function simpanUser(Request $request){
     //     $validateData = $request->validate([
     //         'name' => 'required|min:1|max:50',
     //         'email' => 'required',
@@ -66,12 +64,12 @@ class UserController extends Controller
     public function updateUser(Request $request)
     {
         $user = User::where('id', '=', Auth::user()->id)
-                    ->update([
-                            'name' => $request->name,
-                            'email' => $request->email,
-                            'password' => Hash::make($request->password),
-                            'role' => $request->role,
-                    ]);
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+            ]);
 
         return redirect()->route('user.index');
     }
