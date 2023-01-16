@@ -19,10 +19,6 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">
-<<<<<<< HEAD
-=======
-                <a class="nav-link" href="/dashboard">
->>>>>>> e4c043d32e287054066381f89980b998367dfb11
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>

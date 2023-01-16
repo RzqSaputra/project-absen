@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 @include('Template.head')
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     {{-- sidebar --}}
     @include('Template.sidebarP')
@@ -70,92 +70,90 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <style>
+        {{-- <style>
             .container {
                 display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                margin-top: 100px;
             }
-
-            #start-camera {
-                height: 40px;
-            }
-
-            #click-photo {
-                height: 40px;
-            }
-
-            .start {
-                display: flex;
-                flex-direction: column;
-                margin: 0 20px;
-                gap: 20px;
-            }
-
-            .click {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .bt {
-                display: flex;
-                gap: 10px;
-                justify-content: center
-            }
-
-            video {
-                border-radius: 20px;
-            }
-
-            canvas {
-                border-radius: 20px;
-            }
-
-        </style>
-
-        <div class="container">
-
-            <form method="POST" action="{{ route('presensi.simpanPresensi') }}">
-                @csrf
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="my_camera"></div>
-                        <br />
-                        <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                        <input type="hidden" name="image" class="image-tag">
-                    </div>
-                    <div class="col-md-6">
-                        <div id="results"></div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <br />
-                        <button class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-            </form>
+        </style> --}}
+        {{-- <div class="container">
+            <div id="my_camera">
+                
+            </div>
+            <div id="results" style="visibilty: hidden;">  
+            </div>
         </div>
+        <div class="button m-4">
+            <button class="btn btn-primary" type="button" onclick="saveSnap();">Save</button> <br>
+            <a href="image.php"><button class="btn btn-dark" type="button" name="button">Go To Image Database Page &#x2192</button></a>
+        </div> --}}
+
+        <form method="POST" action="{{ route('presensi.simpanPresensi') }}">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="my_camera"></div>
+                    <br />
+                    <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                    <input type="hidden" name="image" class="image-tag">
+                </div>
+                <div class="col-md-6">
+                    <div id="results"></div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <br />
+                    <button class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 
-        <script language="JavaScript">
-            Webcam.set({
-                width: 490,
-                height: 350,
-                image_format: 'jpeg',
-                jpeg_quality: 90
+    <script language="JavaScript">
+        Webcam.set({
+            width: 490,
+            height: 350,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+        Webcam.attach('#my_camera');
+        function take_snapshot() {
+            Webcam.snap(function (data_uri) {
+                $(".image-tag").val(data_uri);
+                document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
             });
-
-            Webcam.attach('#my_camera');
-
-            function take_snapshot() {
-                Webcam.snap(function (data_uri) {
-                    $(".image-tag").val(data_uri);
-                    document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-                });
+        }
+    </script>
+        
+        
+        
+        <!-- script -->
+        {{-- <script type="text/javascript" src="assets/webcam.min.js"></script>
+        
+        <script language="JavaScript">
+            function configure(){
+                Webcam.set({
+                    width: 480,
+                    height: 360,
+                    image_format: 'jpeg',
+                    jpeg_quality: 90
+                })
+        
+                Webcam.attach('#my_camera')
             }
-
-        </script>
+        
+            function saveSnap() {
+                Webcam.snap(function(data_uri){
+                    document.getElementById('results').innerHTML = '<img id="webcam" src="'+data_uri+'"/>'
+                })
+                Webcam.reset();
+                
+                var base64image = document.getElementById("webcam").src;
+                Webcam.upload(base64image, 'function.php', function(code, text){
+                    alert('Save Successfully')
+                    document.location.href = "#"
+                })
+            }
+        </script> --}}
         
         </div>
         {{-- footer --}}

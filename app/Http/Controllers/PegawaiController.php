@@ -30,12 +30,12 @@ class PegawaiController extends Controller
     public function simpanPegawai(Request $request){
 
         $validateData = $request->validate([
-            'nip' => 'required|size:10|unique:pegawai',
-            'user_id' => 'required',
-            'tglLahir' => 'required',
-            'jKel' => 'required',
-            'alamat' => 'required',
-            'noHp' => 'required',
+            'pegawai_id' => 'required',
+            'status_id' => 'required',
+            'tglPresensi' => 'required',
+            'jamMasuk' => 'required',
+            'keterangan' => 'required',
+            'foto' => 'required',
             'jabatan_id' => 'required',
             'cabang_id' => 'required',
         ]);

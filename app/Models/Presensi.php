@@ -15,8 +15,8 @@ class Presensi extends Model
         'updated_at',
         'deleted_at',
     ];  
- 
-    protected $fillable =[
+
+    protected $fillable = [
         'pegawai_id',
         'status_id',
         'tglPresensi',
@@ -32,11 +32,11 @@ class Presensi extends Model
 
     public function status()
     {
-     return $this->belongsTo('App\Models\status', 'status_id', 'id');
+        return $this->belongsTo('App\Models\status', 'status_id', 'id');
     }
 
     public function pegawai()
     {
-     return $this->belongsTo('App\Models\pegawai', 'pegawai_id', 'id');
+        return $this->belongsTo('App\Models\pegawai', 'pegawai_id', 'id');
     }
 }

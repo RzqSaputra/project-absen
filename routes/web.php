@@ -10,20 +10,10 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskMingguanController;
 
-<<<<<<< HEAD
 Route::group(['middleware' => ['auth']], function(){
 
 // ADMIN
 
-=======
-// AUTH
-Route::get('/',         [AuthController::class, 'index'])->name('login.index');
-Route::post('/login',   [AuthController::class, 'login'])->name('auth.login');
-Route::post('/logout',  [AuthController::class, 'logout'])->name('auth.logout');
-
-
-Route::group(['middleware' => ['auth']], function(){
->>>>>>> e4c043d32e287054066381f89980b998367dfb11
 // Route Home/Dashboard
 Route::get('/home',             [HomeController::class, 'index'])->name('home.index');
 

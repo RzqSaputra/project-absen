@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class webcam extends Model
 {
     // use HasFactory;
-    public $table = 'status';
+    public $table = 'webcams';
 
     protected $dates = [
         'created_at',
@@ -17,14 +17,10 @@ class Status extends Model
     ];  
 
     protected $fillable =[
-        'keterangan',
+        'image',
+        'date',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
-    public function presensi()
-    {
-    return $this->hasMany('App\Models\Presensi', 'status_id');
-    }
-    }
+}
